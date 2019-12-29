@@ -110,3 +110,8 @@ input {
     width: 150px;
     text-align: center;
 }
+
+#calendar {
+    margin-top: 40px;
+    float: right;
+}

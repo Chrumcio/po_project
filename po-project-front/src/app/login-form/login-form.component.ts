@@ -13,6 +13,10 @@ import { Location } from '@angular/common';
 
 export class LoginFormComponent implements OnInit {
 
+  public minDate: Date = new Date ("01/01/1980");
+  public maxDate: Date = new Date ("12/31/2080");
+  public value: Date = new Date ();
+
   konto: Konto;
   login: string;
   haslo: string;
@@ -41,7 +45,7 @@ export class LoginFormComponent implements OnInit {
         konto1 = data;
         if(konto1 != null){
           this.alert = "";
-          this.router.navigate(['/','home']);
+          this.router.navigate(['/','loginHome']);
         }else{
           this.formularz.controls.login.setValue("");
           this.formularz.controls.haslo.setValue("");

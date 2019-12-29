@@ -8,12 +8,17 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { KontoSerwis } from './serwis/konto.serwis';
 import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 
 const appRoutes: Routes = [
   {
     path:'home',
     component:LoginFormComponent,
+  },
+  {
+    path:'loginHome',
+    component:ZalogowanoComponent,
   }
 ]
 @NgModule({
@@ -24,6 +29,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(
