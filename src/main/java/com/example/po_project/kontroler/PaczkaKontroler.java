@@ -18,6 +18,6 @@ public class PaczkaKontroler {
 
     @GetMapping("/{name}")
     public ResponseEntity<Paczka> getPaczkaByName(@PathVariable(value = "name")String name){
-        return ResponseEntity.ok(paczkaSerwis.getPaczkaByName(name));
+        return ResponseEntity.ok(paczkaSerwis.getPaczkaByNazwa(name));
     }
 }
