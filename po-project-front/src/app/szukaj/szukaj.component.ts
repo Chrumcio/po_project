@@ -22,7 +22,7 @@ export class SzukajComponent implements OnInit {
   }
 
   szukajKategoria(){
-    console.log("Szukanie po kategorii");
+    this.router.navigate(['/','szukajKategoria']);
   }
 
 }

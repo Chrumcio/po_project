@@ -11,6 +11,7 @@ import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { SzukajComponent } from './szukaj/szukaj.component';
 import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
+import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
 
 
 const appRoutes: Routes = [
@@ -29,6 +30,10 @@ const appRoutes: Routes = [
   {
     path:'szukajNazwa',
     component:SzukajNazwaComponent,
+  },
+  {
+    path:'szukajKategoria',
+    component:SzukajKategoriaComponent,
   }
 ]
 @NgModule({
@@ -37,7 +42,8 @@ const appRoutes: Routes = [
     LoginFormComponent,
     ZalogowanoComponent,
     SzukajComponent,
-    SzukajNazwaComponent
+    SzukajNazwaComponent,
+    SzukajKategoriaComponent
   ],
   imports: [
     BrowserModule,
