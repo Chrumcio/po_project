@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { KontoSerwis } from '../serwis/konto.serwis';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { PaczkaService } from '../serwis/paczka.service';
+import { Paczka } from '../model/paczka';
 
 @Component({
   selector: 'app-szukaj-nazwa',
@@ -12,10 +14,11 @@ import { NgForm } from '@angular/forms';
 export class SzukajNazwaComponent implements OnInit {
 
   nazwa: string;
+  paczka: Paczka;
 
   @ViewChild("szukanieNazwaForm",{static: false}) formularz: NgForm;
 
-  constructor(private route: ActivatedRoute, private router: Router, private kontoSerwis: KontoSerwis, private _location: Location) { }
+  constructor(private route: ActivatedRoute, private router: Router, private paczkaSerwis: PaczkaService, private _location: Location) { }
 
   ngOnInit() {
   }
@@ -23,7 +26,14 @@ export class SzukajNazwaComponent implements OnInit {
   szukaj() {
     if(this.formularz.valid){
       this.nazwa = this.formularz.controls.nazwa.value;
-      console.log(this.nazwa);
+      this.paczkaSerwis.getPaczkaByName(this.nazwa).subscribe(data => {
+        this.paczka = data;
+        if(this.paczka != null){
+          this.router.navigate(['/','listaPaczek']);
+        }else{
+
+        }
+      });
     }
   }
 

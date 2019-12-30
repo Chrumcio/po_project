@@ -12,6 +12,7 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { SzukajComponent } from './szukaj/szukaj.component';
 import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
 import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
+import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
 
 
 const appRoutes: Routes = [
@@ -34,6 +35,10 @@ const appRoutes: Routes = [
   {
     path:'szukajKategoria',
     component:SzukajKategoriaComponent,
+  },
+  {
+    path:'listaPaczek',
+    component:ListaPaczekComponent,
   }
 ]
 @NgModule({
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     ZalogowanoComponent,
     SzukajComponent,
     SzukajNazwaComponent,
-    SzukajKategoriaComponent
+    SzukajKategoriaComponent,
+    ListaPaczekComponent
   ],
   imports: [
     BrowserModule,
