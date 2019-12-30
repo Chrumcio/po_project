@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PoProjectFront</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+<nav>
+    <a routerLink="/loginHome">Home</a>
+</nav>
+  <div class="row">
+    <div class="column">
+        a
+    </div>
+    <div class="column">
+        a
+    </div>
+    <div class="column">
+        <div class="loginPanel">
+            <img src="../../assets/images/avatar.png" id="avatar"><br>
+            <p>Zalogowano jako (sdadsadsad) kierownik</p><br>
+            <button (click)="fun()">Wyloguj</button><br>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="col">
+      <button class="szukajButton" (click)="szukajNazwa()">Szukaj po nazwie</button>
+    </div>
+    <div class="col">
+      <button class="szukajButton" (click)="szukajKategoria()">Szukaj po kategorii</button>
+    </div>
+  </div>
+</body>
+</html>

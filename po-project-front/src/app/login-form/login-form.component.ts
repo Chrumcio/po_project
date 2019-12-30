@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KontoSerwis } from '../serwis/konto.serwis';
 import { Konto } from '../model/konto';
@@ -7,6 +7,9 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login-form',
+  template: `
+    <app-zalogowano [childMessage]="konto"></app-zalogowano>
+  `,
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
@@ -45,6 +48,7 @@ export class LoginFormComponent implements OnInit {
         konto1 = data;
         if(konto1 != null){
           this.alert = "";
+          this.konto = konto1;
           this.router.navigate(['/','loginHome']);
         }else{
           this.formularz.controls.login.setValue("");

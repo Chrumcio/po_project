@@ -12,7 +12,7 @@
 </head>
 <body>
 <nav>
-
+    <a routerLink="/szukaj">Szukaj</a>
 </nav>
   <div class="row">
     <h1 id="headerText">System wspomagający pracę na magazynie</h1>
@@ -24,6 +24,9 @@
     </div>
     <div class="column">
       <div class="loginPanel">
+        <img src="../../assets/images/avatar.png" id="avatar"><br>
+        <p>Zalogowano jako (sdadsadsad) kierownik</p><br>
+        <button (click)="fun()">Wyloguj</button><br>
         <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
       </div>
     </div>

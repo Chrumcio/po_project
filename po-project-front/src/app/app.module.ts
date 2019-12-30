@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { KontoSerwis } from './serwis/konto.serwis';
 import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { SzukajComponent } from './szukaj/szukaj.component';
+import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
 
 
 const appRoutes: Routes = [
@@ -19,13 +21,23 @@ const appRoutes: Routes = [
   {
     path:'loginHome',
     component:ZalogowanoComponent,
+  },
+  {
+    path:'szukaj',
+    component:SzukajComponent,
+  },
+  {
+    path:'szukajNazwa',
+    component:SzukajNazwaComponent,
   }
 ]
 @NgModule({
   declarations: [
     AppComponent,
     LoginFormComponent,
-    ZalogowanoComponent
+    ZalogowanoComponent,
+    SzukajComponent,
+    SzukajNazwaComponent
   ],
   imports: [
     BrowserModule,
