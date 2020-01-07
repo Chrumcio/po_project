@@ -4,5 +4,5 @@ import com.example.po_project.model.Paczka;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PaczkaRepozytorium extends JpaRepository<Paczka,Long> {
-    Paczka findByNazwa(String nazwa);
+    Paczka findByName(String name);
 }

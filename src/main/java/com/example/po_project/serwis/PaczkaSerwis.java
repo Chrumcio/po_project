@@ -13,8 +13,8 @@ public class PaczkaSerwis {
         this.paczkaRepozytorium = paczkaRepozytorium;
     }
 
-    public Paczka getPaczkaByNazwa(String name) {
-        Paczka paczka = paczkaRepozytorium.findByNazwa(name);
+    public Paczka getPaczkaByName(String name) {
+        Paczka paczka = paczkaRepozytorium.findByName(name);
         if(paczka == null){
             return null;
         }else{
