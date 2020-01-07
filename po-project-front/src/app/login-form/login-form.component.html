@@ -1,35 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PoProjectFront</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" />
-</head>
-<body>
-  <div class="row">
-    <h1 id="headerText">System wspomagający pracę na magazynie</h1>
-    <div class="column">
-      <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
-    </div>
-    <div class="column">
-      <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
-    </div>
-    <div class="column">
-      <div class="loginPanel">
-        <form (ngSubmit)="zaloguj()" #logowanieForm="ngForm">
-          <input type="text" placeholder="LOGIN" id="login" ngModel class="form-control" name="login" required="required"><br>
-          <input type="password" placeholder="HASŁO" id="haslo" ngModel class="form-control" name="haslo" required="required"><br>
-          <input type="submit" value="Zaloguj">
-        </form>
-        <p>{{alert}}</p>
-          <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
-      </div>
+<nav>
+  <a routerLink="/home">Home</a>
+</nav>
+<div class="row">
+  <h1 id="headerText" style="color: aliceblue;">System wspomagający pracę na magazynie</h1>
+  <div class="column">
+    <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
+  </div>
+  <div class="column">
+    <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
+  </div>
+  <div class="column">
+    <div class="loginPanel">
+      <form (ngSubmit)="zaloguj()" #logowanieForm="ngForm">
+        <input type="text" placeholder="LOGIN" id="login" ngModel class="form-control" name="login" required="required"><br>
+        <input type="password" placeholder="HASŁO" id="haslo" ngModel class="form-control" name="haslo" required="required"><br>
+        <input type="submit" value="Zaloguj">
+      </form>
+      <p>{{alert}}</p>
+        <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
     </div>
   </div>
-</body>
-</html>
+</div>
