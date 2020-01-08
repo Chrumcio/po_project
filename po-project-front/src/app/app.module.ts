@@ -13,33 +13,15 @@ import { SzukajComponent } from './szukaj/szukaj.component';
 import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
 import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
 import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [
-  {
-    path:'home',
-    component:LoginFormComponent,
-  },
-  {
-    path:'loginHome',
-    component:ZalogowanoComponent,
-  },
-  {
-    path:'szukaj',
-    component:SzukajComponent,
-  },
-  {
-    path:'szukajNazwa',
-    component:SzukajNazwaComponent,
-  },
-  {
-    path:'szukajKategoria',
-    component:SzukajKategoriaComponent,
-  },
-  {
-    path:'listaPaczek',
-    component:ListaPaczekComponent,
-  }
+  {path:'home',component: HomeComponent,},
+  {path:'szukaj',component:SzukajComponent,},
+  {path:'szukajNazwa',component:SzukajNazwaComponent,},
+  {path:'szukajKategoria',component:SzukajKategoriaComponent,},
+  {path:'listaPaczek',component:ListaPaczekComponent,}
 ]
 @NgModule({
   declarations: [
@@ -49,7 +31,8 @@ const appRoutes: Routes = [
     SzukajComponent,
     SzukajNazwaComponent,
     SzukajKategoriaComponent,
-    ListaPaczekComponent
+    ListaPaczekComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -7,9 +7,6 @@ import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login-form',
-  template: `
-    <app-zalogowano [childMessage]="konto"></app-zalogowano>
-  `,
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
@@ -27,7 +24,7 @@ export class LoginFormComponent implements OnInit {
   
   @ViewChild("logowanieForm",{static: false}) formularz: NgForm;
 
-  constructor(private route: ActivatedRoute, private router: Router, private kontoSerwis: KontoSerwis, private _location: Location) { }
+  constructor(private kontoSerwis: KontoSerwis, private _location: Location) { }
 
   ngOnInit() {
     this.konto = new Konto();
@@ -49,8 +46,8 @@ export class LoginFormComponent implements OnInit {
         if(konto1 != null){
           this.alert = "";
           this.konto = konto1;
+          this.kontoSerwis.setczyZalogowany(true);
           // this.konto.czyZalogowany = true;
-          this.router.navigate(['/','loginHome']);
         }else{
           this.formularz.controls.login.setValue("");
           this.formularz.controls.haslo.setValue("");

@@ -1,35 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PoProjectFront</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://cdn.syncfusion.com/ej2/ej2-base/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-buttons/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-popups/styles/material.css" rel="stylesheet" />
-  <link href="https://cdn.syncfusion.com/ej2/ej2-calendars/styles/material.css" rel="stylesheet" />
-</head>
-<body>
-<nav>
-    <a routerLink="/szukaj">Szukaj</a>
-</nav>
-  <div class="row">
-    <h1 id="headerText">System wspomagający pracę na magazynie</h1>
-    <div class="column">
-      <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
-    </div>
-    <div class="column">
-      <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
-    </div>
-    <div class="column">
-      <div class="loginPanel">
-        <img src="../../assets/images/avatar.png" id="avatar"><br>
-        <p>Zalogowano jako (sdadsadsad) kierownik</p><br>
-        <button (click)="fun()">Wyloguj</button><br>
-        <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+<img src="../../assets/images/avatar.png" id="avatar"><br>
+<p>Zalogowano jako (sdadsadsad) kierownik</p><br>
+<button class="btn btn-primary btn-block" (click)="logoutUser()">Wyloguj</button><br>
