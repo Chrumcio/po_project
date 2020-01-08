@@ -15,6 +15,8 @@ import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.co
 import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { UzytkownikService } from './serwis/uzytkownik.service';
+import { PaczkaService } from './serwis/paczka.service';
 
 
 const appRoutes: Routes = [
@@ -46,7 +48,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
   ],
-  providers: [KontoSerwis],
+  providers: [KontoSerwis,PaczkaService,UzytkownikService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
