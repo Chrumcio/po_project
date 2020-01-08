@@ -49,10 +49,12 @@ export class LoginFormComponent implements OnInit {
         if(konto1 != null){
           this.alert = "";
           this.konto = konto1;
+          // this.konto.czyZalogowany = true;
           this.router.navigate(['/','loginHome']);
         }else{
           this.formularz.controls.login.setValue("");
           this.formularz.controls.haslo.setValue("");
+          // this.konto.czyZalogowany = false;
           this.alert = "Podano błędne dane logowania!";
         }
       });
