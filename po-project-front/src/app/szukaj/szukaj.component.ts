@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { KontoSerwis } from '../serwis/konto.serwis';
 
 @Component({
   selector: 'app-szukaj',
@@ -8,13 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SzukajComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private router: Router,private konto:KontoSerwis) { }
 
   ngOnInit() {
-  }
-
-  fun(){
-    console.log("It works!");
   }
 
   szukajNazwa(){
@@ -23,6 +20,11 @@ export class SzukajComponent implements OnInit {
 
   szukajKategoria(){
     this.router.navigate(['/','szukajKategoria']);
+  }
+
+  logoutUser(){
+    this.konto.setczyZalogowany(false);
+    this.router.navigate(['/','home']);
   }
 
 }

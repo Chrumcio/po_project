@@ -14,6 +14,7 @@ import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
 import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
 import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     SzukajNazwaComponent,
     SzukajKategoriaComponent,
     ListaPaczekComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

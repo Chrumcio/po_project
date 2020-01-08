@@ -1,28 +1,14 @@
-<nav>
-    <a routerLink="/home">Home</a>
-  </nav>
-    <h1 class="pb-5" id="headerText">System wspomagający pracę na magazynie</h1>
-    <div class="row">
-      <div class="col-sm-3 text-center">
-        <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
-      </div>
-      <div class="col-sm-6 text-center">
-        <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
-      </div>
-      <div class="col-sm-3">
-          <app-login-form *ngIf="!czyZalogowano"></app-login-form>
-          <app-zalogowano *ngIf="czyZalogowano"></app-zalogowano>
-          <!-- <form (ngSubmit)="zaloguj()" #logowanieForm="ngForm">
-            <div class="form-group pb-1">
-              <input type="text" placeholder="LOGIN" id="login" ngModel class="form-control" name="login" required>
-            </div>
-            <div class="form-group pb-1">
-              <input type="password" placeholder="HASŁO" id="haslo" ngModel class="form-control" name="haslo" required>
-            </div>
-            <div class="form-group pb-1">
-              <input type="submit" value="Zaloguj" class="btn btn-primary btn-block">
-            </div>
-          </form> -->
-            <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
-    </div>
+<h1 class="pb-5" id="headerText">System wspomagający pracę na magazynie</h1>
+<div class="row">
+  <div class="col-sm-3 text-center">
+    <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
   </div>
+  <div class="col-sm-6 text-center">
+    <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
+  </div>
+  <div class="col-sm-3">
+    <app-login-form *ngIf="!czyZalogowano"></app-login-form>
+    <app-zalogowano *ngIf="czyZalogowano"></app-zalogowano>
+    <ejs-calendar id=calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
+  </div>
+</div>

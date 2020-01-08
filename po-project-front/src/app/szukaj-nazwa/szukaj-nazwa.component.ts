@@ -18,7 +18,7 @@ export class SzukajNazwaComponent implements OnInit {
 
   @ViewChild("szukanieNazwaForm",{static: false}) formularz: NgForm;
 
-  constructor(private route: ActivatedRoute, private router: Router, private paczkaSerwis: PaczkaService, private _location: Location) { }
+  constructor(private route: ActivatedRoute, private router: Router, private paczkaSerwis: PaczkaService, private _location: Location, private konto: KontoSerwis) { }
 
   ngOnInit() {
   }
@@ -35,6 +35,11 @@ export class SzukajNazwaComponent implements OnInit {
         }
       });
     }
+  }
+
+  logoutUser(){
+    this.konto.setczyZalogowany(false);
+    this.router.navigate(['/','home']);
   }
 
 }

@@ -1,35 +1,20 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>PoProjectFront</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-<nav>
-    <a routerLink="/loginHome">Home</a>
-</nav>
-  <div class="row">
-    <div class="column">
-        a
-    </div>
-    <div class="column">
-        a
-    </div>
-    <div class="column">
-        <div class="loginPanel" id="loginPanel">
-            <img src="../../assets/images/avatar.png" id="avatar"><br>
-            <p>Zalogowano jako (sdadsadsad) kierownik</p><br>
-            <button (click)="fun()" class="wyloguj">Wyloguj</button><br>
-        </div>
-    </div>
+<div class="row">
+  <div class="col-sm-1 text-center pt-5" id="bs">
   </div>
-  <div class="container">
+  <div class="col-sm-9 text-center pt-5" id="bs">
     <form (ngSubmit)="szukaj()" #szukanieNazwaForm="ngForm">
-        <input type="text" class="inputNazwa" placeholder="Wprowadź nazwę szukanej paczki" id="nazwa" ngModel class="form-control" name="nazwa" required="required"><br>
-        <input type="submit" value="Szukaj" id="inputSubmit">
+      <div class="form-group pb-1">
+        <input type="text" class="inputNazwa" placeholder="Wprowadź nazwę szukanej paczki" id="nazwa" ngModel
+          class="form-control" name="nazwa" required="required"><br>
+      </div>
+      <div class="form-group pb-1">
+        <input type="submit" value="Szukaj" id="inputSubmit" class="btn btn-primary btn-block">
+      </div>
     </form>
   </div>
-</body>
-</html>
+  <div class="col-sm-2 pt-5 text-right">
+    <img src="../../assets/images/avatar.png" id="avatar"><br>
+    <p class="text-info">Zalogowano jako (sdadsadsad) kierownik</p><br>
+    <button class="btn btn-primary btn-block" (click)="logoutUser()" id="logout">Wyloguj</button><br>
+  </div>
+</div>
