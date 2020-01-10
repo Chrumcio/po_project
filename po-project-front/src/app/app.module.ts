@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -17,9 +18,11 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UzytkownikService } from './serwis/uzytkownik.service';
 import { PaczkaService } from './serwis/paczka.service';
+import { StartPageComponent } from './start-page/start-page.component';
 
 
 const appRoutes: Routes = [
+  {path:'',component: StartPageComponent,},
   {path:'home',component: HomeComponent,},
   {path:'szukaj',component:SzukajComponent,},
   {path:'szukajNazwa',component:SzukajNazwaComponent,},
@@ -36,13 +39,15 @@ const appRoutes: Routes = [
     SzukajKategoriaComponent,
     ListaPaczekComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    StartPageComponent
   ],
   imports: [
     BrowserModule,
     CalendarModule,
     FormsModule,
     HttpClientModule,
+    CarouselModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
