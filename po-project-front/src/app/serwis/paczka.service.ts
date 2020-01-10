@@ -9,6 +9,7 @@ import { Paczka } from '../model/paczka';
 export class PaczkaService {
   
   private url: string;
+  listPaczka: Paczka[] = [];
 
   constructor(private http: HttpClient){
     this.url = "http://localhost:8080/paczka"

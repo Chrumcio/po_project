@@ -12,7 +12,7 @@ import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { SzukajComponent } from './szukaj-base/szukaj/szukaj.component';
 import { SzukajNazwaComponent } from "./szukaj-base/szukaj/szukaj-nazwa/szukaj-nazwa.component";
-import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
+import { ListaPaczekComponent } from './szukaj-base/szukaj/szukaj-nazwa/lista-paczek/lista-paczek.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { UzytkownikService } from './serwis/uzytkownik.service';

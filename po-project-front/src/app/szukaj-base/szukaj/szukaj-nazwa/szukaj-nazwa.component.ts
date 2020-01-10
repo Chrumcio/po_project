@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
 import { Paczka } from '../../../model/paczka';
-import { ListaPaczekComponent } from '../../../lista-paczek/lista-paczek.component';
 import { PaczkaService } from 'src/app/serwis/paczka.service';
 import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 
@@ -15,7 +14,7 @@ import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 export class SzukajNazwaComponent implements OnInit {
 
   nazwa: string;
-  paczka: Paczka;
+  paczka: Paczka[];
   list: Array<string> = ["Laptop","Smartfon"];
 
   @ViewChild("szukanieNazwaForm",{static: false}) formularz: NgForm;
@@ -23,6 +22,7 @@ export class SzukajNazwaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private paczkaSerwis: PaczkaService, private _location: Location, private konto: KontoSerwis) { }
 
   ngOnInit() {
+    this.paczka = [];
   }
 
   szukaj() {
@@ -31,7 +31,8 @@ export class SzukajNazwaComponent implements OnInit {
       for(let paczkaList of this.list){
         if(this.nazwa == paczkaList){
           this.paczkaSerwis.getPaczkaByName(this.nazwa).subscribe(data =>{
-            this.paczka = data;
+            this.paczka.push(data);
+            this.paczkaSerwis.listPaczka.push(data);
             if(this.paczka != null){
               this.router.navigate(['../wyniki'],{relativeTo: this.route})
             }else{
