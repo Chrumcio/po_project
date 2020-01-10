@@ -6,15 +6,32 @@ import javax.persistence.*;
 @Table(name = "paczka")
 public class Paczka {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "kategoria")
+    private String kategoria;
+
+    @Column(name = "miejsce_magazynowe_id")
+    private Long miejsce_magazynowe_id;
+
+    @Column(name = "nazwa")
     private String nazwa;
+
+    @Column(name = "kod_kreskowy")
     private Long kod_kreskowy;
+
+    @Column(name = "kod_qr")
     private String kog_qr;
+
+    @Column(name = "wartosc")
     private double wartosc;
+
+    @Column(name = "czy_ubezpieczona")
     public boolean czy_ubezpieczona;
-    private Long MiejsceMagazynoweid;
+
+    @Column(name = "magazynid")
     private Long magazynid;
 
     public Paczka() {
@@ -27,7 +44,7 @@ public class Paczka {
         this.kog_qr = kog_qr;
         this.wartosc = wartosc;
         this.czy_ubezpieczona = czy_ubezpieczona;
-        this.MiejsceMagazynoweid = miejsceMagazynoweid;
+        this.miejsce_magazynowe_id = miejsceMagazynoweid;
         this.magazynid = magazynid;
     }
 
@@ -37,6 +54,22 @@ public class Paczka {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getKategoria() {
+        return kategoria;
+    }
+
+    public void setKategoria(String kategoria) {
+        this.kategoria = kategoria;
+    }
+
+    public Long getMiejsce_magazynowe_id() {
+        return miejsce_magazynowe_id;
+    }
+
+    public void setMiejsce_magazynowe_id(Long miejsce_magazynowe_id) {
+        this.miejsce_magazynowe_id = miejsce_magazynowe_id;
     }
 
     public String getNazwa() {
@@ -80,11 +113,11 @@ public class Paczka {
     }
 
     public Long getMiejsceMagazynoweid() {
-        return MiejsceMagazynoweid;
+        return this.miejsce_magazynowe_id;
     }
 
     public void setMiejsceMagazynoweid(Long miejsceMagazynoweid) {
-        MiejsceMagazynoweid = miejsceMagazynoweid;
+        this.miejsce_magazynowe_id = miejsceMagazynoweid;
     }
 
     public Long getMagazynid() {
@@ -99,12 +132,13 @@ public class Paczka {
     public String toString() {
         return "Paczka{" +
                 "id=" + id +
+                ", kategoria='" + kategoria + '\'' +
+                ", miejsce_magazynowe_id=" + miejsce_magazynowe_id +
                 ", nazwa='" + nazwa + '\'' +
                 ", kod_kreskowy=" + kod_kreskowy +
                 ", kog_qr='" + kog_qr + '\'' +
                 ", wartosc=" + wartosc +
                 ", czy_ubezpieczona=" + czy_ubezpieczona +
-                ", MiejsceMagazynoweid=" + MiejsceMagazynoweid +
                 ", magazynid=" + magazynid +
                 '}';
     }

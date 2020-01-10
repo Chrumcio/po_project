@@ -4,6 +4,8 @@ import com.example.po_project.model.Paczka;
 import com.example.po_project.repozytorium.PaczkaRepozytorium;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaczkaSerwis {
 
@@ -13,12 +15,21 @@ public class PaczkaSerwis {
         this.paczkaRepozytorium = paczkaRepozytorium;
     }
 
-    public Paczka getPaczkaByName(String name) {
-        Paczka paczka = paczkaRepozytorium.findByName(name);
-        if(paczka == null){
+    public List<Paczka> getPaczkaByName(String name) {
+        List<Paczka> paczkaList = paczkaRepozytorium.findByNazwa(name);
+        if(paczkaList.isEmpty()){
             return null;
         }else{
-            return paczka;
+            return paczkaList;
+        }
+    }
+
+    public List<Paczka> getPaczkaByKategoria(String kategoria){
+        List<Paczka> paczkaList = paczkaRepozytorium.findByKategoria(kategoria);
+        if(paczkaList.isEmpty()){
+            return null;
+        }else {
+            return paczkaList;
         }
     }
 }
