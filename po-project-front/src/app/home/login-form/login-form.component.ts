@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { KontoSerwis } from '../serwis/konto.serwis';
-import { Konto } from '../model/konto';
+import { Konto } from '../../model/konto';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
+import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 
 @Component({
   selector: 'app-login-form',

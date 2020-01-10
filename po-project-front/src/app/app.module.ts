@@ -5,10 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
-import { LoginFormComponent } from './login-form/login-form.component';
 import { HttpClientModule } from '@angular/common/http'; 
 import { KontoSerwis } from './serwis/konto.serwis';
-import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
+import { ZalogowanoComponent } from './home/zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { SzukajComponent } from './szukaj-base/szukaj/szukaj.component';
 import { SzukajNazwaComponent } from "./szukaj-base/szukaj/szukaj-nazwa/szukaj-nazwa.component";
@@ -20,6 +19,7 @@ import { PaczkaService } from './serwis/paczka.service';
 import { StartPageComponent } from './start-page/start-page.component';
 import { SzukajBaseComponent } from './szukaj-base/szukaj-base.component';
 import { SzukajKategoriaComponent } from './szukaj-base/szukaj/szukaj-kategoria/szukaj-kategoria.component';
+import { LoginFormComponent } from './home/login-form/login-form.component';
 
 
 const appRoutes: Routes = [

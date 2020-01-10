@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { LoginFormComponent } from '../login-form/login-form.component';
-import { Konto } from '../model/konto';
-import { KontoSerwis } from '../serwis/konto.serwis';
+import { Konto } from '../../model/konto';
+import { KontoSerwis } from '../../serwis/konto.serwis';
 
 @Component({
   selector: 'app-zalogowano',
