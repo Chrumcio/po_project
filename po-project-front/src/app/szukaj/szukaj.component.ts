@@ -9,17 +9,17 @@ import { KontoSerwis } from '../serwis/konto.serwis';
 })
 export class SzukajComponent implements OnInit {
 
-  constructor(private router: Router,private konto:KontoSerwis) { }
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,private konto:KontoSerwis) { }
 
   ngOnInit() {
   }
 
   szukajNazwa(){
-    this.router.navigate(['/','szukajNazwa']);
+    this.router.navigate(['nazwa'],{relativeTo: this.activatedRoute});
   }
 
   szukajKategoria(){
-    this.router.navigate(['/','szukajKategoria']);
+    this.router.navigate(['kategoria'],{relativeTo: this.activatedRoute});
   }
 
   logoutUser(){

@@ -11,7 +11,7 @@ import { KontoSerwis } from './serwis/konto.serwis';
 import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { SzukajComponent } from './szukaj/szukaj.component';
-import { SzukajNazwaComponent } from './szukaj-nazwa/szukaj-nazwa.component';
+import { SzukajNazwaComponent } from "./szukaj-nazwa/szukaj-nazwa.component";
 import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
 import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
 import { HomeComponent } from './home/home.component';
@@ -19,16 +19,19 @@ import { HeaderComponent } from './header/header.component';
 import { UzytkownikService } from './serwis/uzytkownik.service';
 import { PaczkaService } from './serwis/paczka.service';
 import { StartPageComponent } from './start-page/start-page.component';
+import { SzukajBaseComponent } from './szukaj-base/szukaj-base.component';
 
 
 const appRoutes: Routes = [
   {path:'',component: StartPageComponent,},
   {path:'home',component: HomeComponent,},
-  {path:'szukaj',component:SzukajComponent,},
-  {path:'szukajNazwa',component:SzukajNazwaComponent,},
-  {path:'szukajKategoria',component:SzukajKategoriaComponent,},
-  {path:'listaPaczek',component:ListaPaczekComponent,}
-]
+  {path:'szukaj',component:SzukajBaseComponent,children:[
+    {path:'',component:SzukajComponent},
+    {path:'nazwa',component:SzukajNazwaComponent},
+    {path:'kategoria',component:SzukajKategoriaComponent},
+    {path:'wyniki',component:ListaPaczekComponent}
+  ]},
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     ListaPaczekComponent,
     HomeComponent,
     HeaderComponent,
-    StartPageComponent
+    StartPageComponent,
+    SzukajBaseComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ const appRoutes: Routes = [
     CarouselModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
+      { enableTracing: true }
     ),
   ],
   providers: [KontoSerwis,PaczkaService,UzytkownikService],
