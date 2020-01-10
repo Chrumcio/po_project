@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { KontoSerwis } from '../serwis/konto.serwis';
 import { Location } from '@angular/common';
 import { NgForm } from '@angular/forms';
-import { PaczkaService } from '../serwis/paczka.service';
-import { Paczka } from '../model/paczka';
-import { ListaPaczekComponent } from '../lista-paczek/lista-paczek.component';
+import { Paczka } from '../../../model/paczka';
+import { ListaPaczekComponent } from '../../../lista-paczek/lista-paczek.component';
+import { PaczkaService } from 'src/app/serwis/paczka.service';
+import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 
 @Component({
   selector: 'app-szukaj-nazwa',

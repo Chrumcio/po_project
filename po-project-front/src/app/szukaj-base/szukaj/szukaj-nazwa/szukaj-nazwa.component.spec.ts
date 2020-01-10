@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { SzukajNazwaComponent } from "./SzukajNazwaComponent";
+import { SzukajNazwaComponent } from './szukaj-nazwa.component';
 
 describe('SzukajNazwaComponent', () => {
   let component: SzukajNazwaComponent;

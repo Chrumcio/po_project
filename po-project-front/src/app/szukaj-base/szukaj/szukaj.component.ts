@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { KontoSerwis } from '../serwis/konto.serwis';
+import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 
 @Component({
   selector: 'app-szukaj',

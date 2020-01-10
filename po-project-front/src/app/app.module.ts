@@ -10,9 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { KontoSerwis } from './serwis/konto.serwis';
 import { ZalogowanoComponent } from './zalogowano/zalogowano.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
-import { SzukajComponent } from './szukaj/szukaj.component';
-import { SzukajNazwaComponent } from "./szukaj-nazwa/szukaj-nazwa.component";
-import { SzukajKategoriaComponent } from './szukaj-kategoria/szukaj-kategoria.component';
+import { SzukajComponent } from './szukaj-base/szukaj/szukaj.component';
+import { SzukajNazwaComponent } from "./szukaj-base/szukaj/szukaj-nazwa/szukaj-nazwa.component";
 import { ListaPaczekComponent } from './lista-paczek/lista-paczek.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +19,7 @@ import { UzytkownikService } from './serwis/uzytkownik.service';
 import { PaczkaService } from './serwis/paczka.service';
 import { StartPageComponent } from './start-page/start-page.component';
 import { SzukajBaseComponent } from './szukaj-base/szukaj-base.component';
+import { SzukajKategoriaComponent } from './szukaj-base/szukaj/szukaj-kategoria/szukaj-kategoria.component';
 
 
 const appRoutes: Routes = [
