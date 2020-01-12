@@ -23,6 +23,7 @@ import { StartPageComponent } from './start-page/start-page.component';
 import { SzukajBaseComponent } from './szukaj-base/szukaj-base.component';
 import { SzukajKategoriaComponent } from './szukaj-base/szukaj/szukaj-kategoria/szukaj-kategoria.component';
 import { LoginFormComponent } from './home/login-form/login-form.component';
+import { SzukajErrorComponent } from './szukaj-base/szukaj/szukaj-nazwa/szukaj-error/szukaj-error.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     {path:'',component:SzukajComponent},
     {path:'nazwa',component:SzukajNazwaComponent},
     {path:'kategoria',component:SzukajKategoriaComponent},
-    {path:'wyniki',component:ListaPaczekComponent}
+    {path:'wyniki',component:ListaPaczekComponent},
+    {path:'error',component:SzukajErrorComponent}
   ]},
 ];
 @NgModule({
@@ -47,7 +49,8 @@ const appRoutes: Routes = [
     HomeComponent,
     HeaderComponent,
     StartPageComponent,
-    SzukajBaseComponent
+    SzukajBaseComponent,
+    SzukajErrorComponent
   ],
   imports: [
     BrowserModule,

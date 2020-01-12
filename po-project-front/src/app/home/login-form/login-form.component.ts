@@ -13,10 +13,6 @@ import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 
 export class LoginFormComponent implements OnInit {
 
-  public minDate: Date = new Date ("01/01/1980");
-  public maxDate: Date = new Date ("12/31/2080");
-  public value: Date = new Date ();
-
   konto: Konto;
   login: string;
   haslo: string;
@@ -47,11 +43,9 @@ export class LoginFormComponent implements OnInit {
           this.alert = "";
           this.konto = konto1;
           this.kontoSerwis.setczyZalogowany(true);
-          // this.konto.czyZalogowany = true;
         }else{
           this.formularz.controls.login.setValue("");
           this.formularz.controls.haslo.setValue("");
-          // this.konto.czyZalogowany = false;
           this.alert = "Podano błędne dane logowania!";
         }
       });

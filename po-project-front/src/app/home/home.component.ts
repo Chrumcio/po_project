@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.subskrypcja = this.konto.czyZalogowano.subscribe(czyZalogowano => {
-      debugger;
       this.czyZalogowano = czyZalogowano;
     });
   }

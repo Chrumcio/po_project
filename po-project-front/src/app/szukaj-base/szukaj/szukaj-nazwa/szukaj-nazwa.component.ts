@@ -34,21 +34,23 @@ export class SzukajNazwaComponent implements OnInit {
         });
         if(name != null){
           this.paczkaSerwis.getPaczkaByName(this.nazwa).pipe(map(el => {
-            for(let e of el){
-              e.kod_kreskowy = e.kod_kreskowy % 1000;
+            if(el != null){
+              for(let e of el){
+                e.kod_kreskowy = e.kod_kreskowy % 1000;
+              }
+              return el;
             }
-            return el;
           })).subscribe(data =>{
             this.paczka = data;
             this.paczkaSerwis.listPaczka = data;
             if(this.paczka != null){
               this.router.navigate(['../wyniki'],{relativeTo: this.route})
             }else{
-              this.router.navigate(['','']);// adres do alertu o braku paczki w magazynie
+              this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Brak podanej paczki w magazynie", errorPath: "/home"}});// adres do alertu o braku paczki w magazynie
             }
           });
         }else{
-          this.router.navigate(['/','a']);//adres do alertu o braku takiej nazwy paczki
+          this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Wprowadzono błędną nazwę paczki", errorPath: "../nazwa"}});//adres do alertu o braku takiej nazwy paczki
         }
       }
   }
