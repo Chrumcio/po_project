@@ -1,1 +1,9 @@
-<p>szukaj-kategoria-szczegoly works!</p>
+<div class="row pt-5">
+    <div class="col-4">
+        <h1 class="text-white ml-3">{{kategoria}}</h1>
+        <div class="list-group" id="list-tab" role="tablist">
+            <a *ngFor="let item of podkategoria.get(kategoria)" class="list-group-item list-group-item-action ml-3" (click)="setListPaczka(item)">{{item}}
+            </a>
+        </div>
+    </div>
+</div>

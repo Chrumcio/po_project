@@ -19,7 +19,7 @@ export class PaczkaService {
     return this.http.get<Paczka[]>(`${this.url}/${nazwa}`);
   }
 
-  getPaczkaByKategoria(kategoria):Observable<Paczka> {
-    return this.http.get<Paczka>(`${this.url}/${kategoria}`);
+  getPaczkaByKategoria(kategoria):Observable<Paczka[]> {
+    return this.http.get<Paczka[]>(`${this.url}/kategoria/${kategoria}`);
   }
 }
