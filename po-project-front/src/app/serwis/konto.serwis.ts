@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { Konto } from '../model/konto';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Konto } from '../model/konto';
 export class KontoSerwis {
     private url: string;
     private czyZalogowany: Boolean;
-    public subject = new Subject<Boolean>();
+    public subject = new ReplaySubject<Boolean>(1);
 
     constructor(private http: HttpClient){
         this.url = "http://localhost:8080/konto";

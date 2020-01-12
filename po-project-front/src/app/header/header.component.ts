@@ -1,19 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { KontoSerwis } from '../serwis/konto.serwis';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
-  private czyZalogowano: Boolean;
+  ngOnDestroy(): void {
+    this.subskrypcja.unsubscribe();
+  }
+
+  czyZalogowano: Boolean;
+  private subskrypcja: Subscription;
 
   constructor(private konto: KontoSerwis) { }
 
   ngOnInit() {
-    this.konto.subject.subscribe(data => {
+    this.subskrypcja = this.konto.subject.subscribe(data => {
       this.czyZalogowano = data;
     });
   }
