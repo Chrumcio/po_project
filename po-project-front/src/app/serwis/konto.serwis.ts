@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Konto } from '../model/konto';
 
 @Injectable({
@@ -8,8 +8,7 @@ import { Konto } from '../model/konto';
 })
 export class KontoSerwis {
     private url: string;
-    private czyZalogowany: Boolean;
-    public subject = new ReplaySubject<Boolean>(1);
+    private czyZalogowany = new BehaviorSubject<Boolean>(false);
 
     constructor(private http: HttpClient){
         this.url = "http://localhost:8080/konto";
@@ -20,7 +19,10 @@ export class KontoSerwis {
     }
 
     setczyZalogowany(czyZalogowano: Boolean){
-        this.czyZalogowany = czyZalogowano;
-        this.subject.next(czyZalogowano);
+        this.czyZalogowany.next(czyZalogowano);
+    }
+
+    get czyZalogowano(){
+        return this.czyZalogowany.asObservable();
     }
 }

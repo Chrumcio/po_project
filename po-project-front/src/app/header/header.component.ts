@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private konto: KontoSerwis) { }
 
   ngOnInit() {
-    this.subskrypcja = this.konto.subject.subscribe(data => {
+    this.subskrypcja = this.konto.czyZalogowano.subscribe(data => {
       this.czyZalogowano = data;
     });
   }

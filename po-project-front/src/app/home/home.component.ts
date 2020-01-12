@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit, OnDestroy{
   constructor(private konto: KontoSerwis) { }
 
   ngOnInit() {
-    this.subskrypcja = this.konto.subject.subscribe(czyZalogowano => {
+    this.subskrypcja = this.konto.czyZalogowano.subscribe(czyZalogowano => {
       debugger;
       this.czyZalogowano = czyZalogowano;
     });
