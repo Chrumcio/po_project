@@ -1,1 +1,9 @@
-<p>szukaj-kategoria works!</p>
+<div class="row pt-5">
+    <div class="col-4">
+        <div class="list-group" id="list-tab" role="tablist">
+            <a routerLink="../kategoriaSzczegoly" [queryParams] = "{kategoria: stworzUrl(item.name)}" class="list-group-item list-group-item-action" *ngFor="let item of kategoriaList">
+                <fa-icon [icon]="['fas',item.icon_name]" class="mr-4"></fa-icon>{{item.name}}
+            </a>
+        </div>
+    </div>
+</div>
