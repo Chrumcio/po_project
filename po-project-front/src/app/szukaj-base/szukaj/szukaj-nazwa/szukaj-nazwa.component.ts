@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Paczka } from '../../../model/paczka';
 import { PaczkaService } from 'src/app/serwis/paczka.service';
 import { KontoSerwis } from 'src/app/serwis/konto.serwis';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-szukaj-nazwa',
@@ -15,7 +16,7 @@ export class SzukajNazwaComponent implements OnInit {
 
   nazwa: string;
   paczka: Paczka[];
-  list: Array<string> = ["Laptop","Smartfon"];
+  listName: Array<string> = ["Laptop","Smartfon"];
 
   @ViewChild("szukanieNazwaForm",{static: false}) formularz: NgForm;
 
@@ -28,11 +29,18 @@ export class SzukajNazwaComponent implements OnInit {
   szukaj() {
     if(this.formularz.valid){
       this.nazwa = this.formularz.controls.nazwa.value;
-      for(let paczkaList of this.list){
-        if(this.nazwa == paczkaList){
-          this.paczkaSerwis.getPaczkaByName(this.nazwa).subscribe(data =>{
-            this.paczka.push(data);
-            this.paczkaSerwis.listPaczka.push(data);
+        let name = this.listName.find(item => {
+          return this.nazwa === item;
+        });
+        if(name != null){
+          this.paczkaSerwis.getPaczkaByName(this.nazwa).pipe(map(el => {
+            for(let e of el){
+              e.kod_kreskowy = e.kod_kreskowy % 1000;
+            }
+            return el;
+          })).subscribe(data =>{
+            this.paczka = data;
+            this.paczkaSerwis.listPaczka = data;
             if(this.paczka != null){
               this.router.navigate(['../wyniki'],{relativeTo: this.route})
             }else{
@@ -40,10 +48,9 @@ export class SzukajNazwaComponent implements OnInit {
             }
           });
         }else{
-          this.router.navigate(['','']);//adres do alertu o braku takiej nazwy paczki
+          this.router.navigate(['/','a']);//adres do alertu o braku takiej nazwy paczki
         }
       }
-    }
   }
 
   logoutUser(){

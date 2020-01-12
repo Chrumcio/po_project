@@ -15,8 +15,8 @@ export class PaczkaService {
     this.url = "http://localhost:8080/paczka"
   }
 
-  getPaczkaByName(nazwa):Observable<Paczka> {
-    return this.http.get<Paczka>(`${this.url}/${nazwa}`);
+  getPaczkaByName(nazwa):Observable<Paczka[]> {
+    return this.http.get<Paczka[]>(`${this.url}/${nazwa}`);
   }
 
   getPaczkaByKategoria(kategoria):Observable<Paczka> {
