@@ -25,6 +25,7 @@ import { SzukajKategoriaComponent } from './szukaj-base/szukaj/szukaj-kategoria/
 import { LoginFormComponent } from './home/login-form/login-form.component';
 import { SzukajErrorComponent } from './szukaj-base/szukaj/szukaj-nazwa/szukaj-error/szukaj-error.component';
 import { SzukajKategoriaSzczegolyComponent } from './szukaj-base/szukaj/szukaj-kategoria/szukaj-kategoria-szczegoly/szukaj-kategoria-szczegoly.component';
+import { GenerateBaseComponent } from './generate-base/generate-base.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +38,9 @@ const appRoutes: Routes = [
     {path:'kategoriaSzczegoly',component: SzukajKategoriaSzczegolyComponent},
     {path:'wyniki',component:ListaPaczekComponent},
     {path:'error',component:SzukajErrorComponent}
+  ]},
+  {path:'generuj',component:GenerateBaseComponent,children:[
+
   ]},
 ];
 @NgModule({
@@ -53,7 +57,8 @@ const appRoutes: Routes = [
     StartPageComponent,
     SzukajBaseComponent,
     SzukajErrorComponent,
-    SzukajKategoriaSzczegolyComponent
+    SzukajKategoriaSzczegolyComponent,
+    GenerateBaseComponent
   ],
   imports: [
     BrowserModule,
