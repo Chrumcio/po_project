@@ -4,6 +4,7 @@ import { Konto } from '../../model/konto';
 import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 import { KontoSerwis } from 'src/app/serwis/konto.serwis';
+import { KlientService } from 'src/app/serwis/klient.service';
 
 @Component({
   selector: 'app-login-form',
@@ -20,7 +21,7 @@ export class LoginFormComponent implements OnInit {
   
   @ViewChild("logowanieForm",{static: false}) formularz: NgForm;
 
-  constructor(private kontoSerwis: KontoSerwis, private _location: Location) { }
+  constructor(private kontoSerwis: KontoSerwis, private _location: Location, private klientSerwis: KlientService) { }
 
   ngOnInit() {
     this.konto = new Konto();
