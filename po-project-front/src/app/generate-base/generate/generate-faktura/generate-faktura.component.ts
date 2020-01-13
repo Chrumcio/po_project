@@ -12,4 +12,8 @@ export class GenerateFakturaComponent implements OnInit {
   ngOnInit() {
   }
 
+  generujFaktura(){
+    
+  }
+
 }

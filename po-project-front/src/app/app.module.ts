@@ -6,6 +6,7 @@ import { CarouselModule } from 'ngx-bootstrap';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import localePl from '@angular/common/locales/pl';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -29,6 +30,8 @@ import { GenerateBaseComponent } from './generate-base/generate-base.component';
 import { GenerateComponent } from './generate-base/generate/generate.component';
 import { GenerateFakturaComponent } from './generate-base/generate/generate-faktura/generate-faktura.component';
 import { GenerateParagonComponent } from './generate-base/generate/generate-paragon/generate-paragon.component';
+import { registerLocaleData } from '@angular/common';
+import { from } from 'rxjs';
 
 
 const appRoutes: Routes = [
@@ -48,6 +51,8 @@ const appRoutes: Routes = [
     {path:'paragon',component:GenerateParagonComponent}
   ]}
 ];
+
+registerLocaleData(localePl,"pl-PL");
 @NgModule({
   declarations: [
     AppComponent,

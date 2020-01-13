@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerateParagonComponent implements OnInit {
 
+  paragon = {
+    imie: '',
+    nazwisko: '',
+    pesel: '',
+    dataUrodzenia: '',
+    nrPaczki: '',
+    oplata: 0.0
+  }
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  generujParagon(){
+
   }
 
 }
