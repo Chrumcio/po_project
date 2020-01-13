@@ -26,6 +26,9 @@ import { LoginFormComponent } from './home/login-form/login-form.component';
 import { SzukajErrorComponent } from './szukaj-base/szukaj/szukaj-nazwa/szukaj-error/szukaj-error.component';
 import { SzukajKategoriaSzczegolyComponent } from './szukaj-base/szukaj/szukaj-kategoria/szukaj-kategoria-szczegoly/szukaj-kategoria-szczegoly.component';
 import { GenerateBaseComponent } from './generate-base/generate-base.component';
+import { GenerateComponent } from './generate-base/generate/generate.component';
+import { GenerateFakturaComponent } from './generate-base/generate/generate-faktura/generate-faktura.component';
+import { GenerateParagonComponent } from './generate-base/generate/generate-paragon/generate-paragon.component';
 
 
 const appRoutes: Routes = [
@@ -39,7 +42,11 @@ const appRoutes: Routes = [
     {path:'wyniki',component:ListaPaczekComponent},
     {path:'error',component:SzukajErrorComponent}
   ]},
-  {path:'generuj',component:GenerateBaseComponent}
+  {path:'generuj',component:GenerateBaseComponent,children:[
+    {path:'',component:GenerateComponent},
+    {path:'faktura',component:GenerateFakturaComponent},
+    {path:'paragon',component:GenerateParagonComponent}
+  ]}
 ];
 @NgModule({
   declarations: [
@@ -56,7 +63,10 @@ const appRoutes: Routes = [
     SzukajBaseComponent,
     SzukajErrorComponent,
     SzukajKategoriaSzczegolyComponent,
-    GenerateBaseComponent
+    GenerateBaseComponent,
+    GenerateComponent,
+    GenerateFakturaComponent,
+    GenerateParagonComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,8 @@ import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 export class GenerateComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,private konto:KontoSerwis) { }
-  
+
+
   ngOnInit() {
   }
 
@@ -21,5 +22,6 @@ export class GenerateComponent implements OnInit {
   generujParagon(){
     this.router.navigate(['paragon'],{relativeTo: this.activatedRoute});
   }
+
 
 }
