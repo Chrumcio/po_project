@@ -6,6 +6,8 @@ import { KlientService } from 'src/app/serwis/klient.service';
 import { Klient } from 'src/app/model/klient';
 import { UzytkownikService } from 'src/app/serwis/uzytkownik.service';
 import { Uzytkownik } from 'src/app/model/uzytkownik';
+import { TypkontaService } from 'src/app/serwis/typkonta.service';
+import { TypKonta } from 'src/app/model/typkonta';
 
 @Component({
   selector: 'app-zalogowano',
@@ -16,26 +18,30 @@ export class ZalogowanoComponent implements OnInit {
 
   klient: Klient;
   uzytkownik: Uzytkownik;
+  typKonta: TypKonta;
 
-  constructor(private konto: KontoSerwis, private klientSerwis: KlientService, private uzytkownikSerwis: UzytkownikService) { }
+  constructor(private konto: KontoSerwis, private klientSerwis: KlientService, private uzytkownikSerwis: UzytkownikService, private typKontaSerwis: TypkontaService) { }
 
   ngOnInit() {
     this.klient = new Klient();
-    if(this.konto.konto.id == 1){
-      this.klientSerwis.getKlientByKontoId(this.konto.konto.id).subscribe(item => {   
-        debugger;
+    this.typKonta = new TypKonta();
+    if (this.konto.konto.typ_kontaid == 2) {
+      this.klientSerwis.getKlientByKontoId(this.konto.konto.id).subscribe(item => {
         this.klient = item;
       });
-    } else if(this.konto.konto.id == 2){
-        this.uzytkownikSerwis.getUzytkownikByKontoId(this.konto.konto.id).subscribe(elem => {
-          this.uzytkownik = elem;
-          this.klient.imie = this.uzytkownik.imie;
-          this.klient.nazwisko = this.uzytkownik.nazwisko;
-        });
+    } else if (this.konto.konto.typ_kontaid == 1) {
+      this.uzytkownikSerwis.getUzytkownikByKontoId(this.konto.konto.id).subscribe(elem => {
+        this.uzytkownik = elem;
+        this.klient.imie = this.uzytkownik.imie;
+        this.klient.nazwisko = this.uzytkownik.nazwisko;
+      });
     }
+    this.typKontaSerwis.getTypKontaById(this.konto.konto.typ_kontaid).subscribe(data => {
+      this.typKonta = data;
+    });
   }
 
-  logoutUser(){
+  logoutUser() {
     this.konto.setczyZalogowany(false);
   }
 
