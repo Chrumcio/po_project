@@ -1,20 +1,32 @@
 package com.example.po_project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Table(name = "uzytkownik")
 @Entity
 public class Uzytkownik {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "numer_telefonu")
     private String numer_telefonu;
+
+    @Column(name = "data_rejestracji")
     private Long data_rejestracji;
+
+    @Column(name = "kontoid")
     private Long kontoid;
+
+    @Column(name = "imie")
+    private String imie;
+
+    @Column(name = "nazwisko")
+    private String nazwisko;
 
     public Uzytkownik() {
     }
@@ -67,6 +79,22 @@ public class Uzytkownik {
         this.kontoid = kontoid;
     }
 
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
+    }
+
     @Override
     public String toString() {
         return "Uzytkownik{" +
@@ -75,6 +103,8 @@ public class Uzytkownik {
                 ", numer_telefonu='" + numer_telefonu + '\'' +
                 ", data_rejestracji=" + data_rejestracji +
                 ", kontoid=" + kontoid +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
                 '}';
     }
 }

@@ -7,4 +7,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UzytkownikSerwis {
+
+    private UzytkownikRepozytorium uzytkownikRepozytorium;
+
+    public UzytkownikSerwis(UzytkownikRepozytorium uzytkownikRepozytorium) {
+        this.uzytkownikRepozytorium = uzytkownikRepozytorium;
+    }
+
+    public Uzytkownik findUzytkownikByKontoId(Long id){
+        return this.uzytkownikRepozytorium.findUzytkownikByKontoid(id);
+    }
 }
