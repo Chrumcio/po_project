@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Location } from '@angular/common';
 import { KontoSerwis } from 'src/app/serwis/konto.serwis';
 import { KlientService } from 'src/app/serwis/klient.service';
+import { Klient } from 'src/app/model/klient';
 
 @Component({
   selector: 'app-login-form',
@@ -44,6 +45,7 @@ export class LoginFormComponent implements OnInit {
           this.alert = "";
           this.konto = konto1;
           this.kontoSerwis.setczyZalogowany(true);
+          this.kontoSerwis.konto = data;
         }else{
           this.formularz.controls.login.setValue("");
           this.formularz.controls.haslo.setValue("");

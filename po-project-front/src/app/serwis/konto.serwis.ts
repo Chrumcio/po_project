@@ -9,7 +9,8 @@ import { Konto } from '../model/konto';
 export class KontoSerwis {
     private url: string;
     private czyZalogowany = new BehaviorSubject<Boolean>(false);
-
+    konto: Konto;
+    
     constructor(private http: HttpClient){
         this.url = "http://localhost:8080/konto";
     }
