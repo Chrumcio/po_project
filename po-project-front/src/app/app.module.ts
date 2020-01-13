@@ -39,9 +39,7 @@ const appRoutes: Routes = [
     {path:'wyniki',component:ListaPaczekComponent},
     {path:'error',component:SzukajErrorComponent}
   ]},
-  {path:'generuj',component:GenerateBaseComponent,children:[
-
-  ]},
+  {path:'generuj',component:GenerateBaseComponent}
 ];
 @NgModule({
   declarations: [
