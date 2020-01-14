@@ -32,7 +32,8 @@ import { GenerateFakturaComponent } from './generate-base/generate/generate-fakt
 import { GenerateParagonComponent } from './generate-base/generate/generate-paragon/generate-paragon.component';
 import { registerLocaleData } from '@angular/common';
 import { from } from 'rxjs';
-
+import { GenerateWynikiComponent } from './generate-base/generate/generate-wyniki/generate-wyniki.component';
+import { GenerateErrorComponent } from './generate-base/generate/generate-error/generate-error.component';
 
 const appRoutes: Routes = [
   {path:'',component: StartPageComponent,},
@@ -48,7 +49,7 @@ const appRoutes: Routes = [
   {path:'generuj',component:GenerateBaseComponent,children:[
     {path:'',component:GenerateComponent},
     {path:'faktura',component:GenerateFakturaComponent},
-    {path:'paragon',component:GenerateParagonComponent}
+    {path:'paragon',component:GenerateParagonComponent},
   ]}
 ];
 
@@ -71,7 +72,9 @@ registerLocaleData(localePl,"pl-PL");
     GenerateBaseComponent,
     GenerateComponent,
     GenerateFakturaComponent,
-    GenerateParagonComponent
+    GenerateParagonComponent,
+    GenerateWynikiComponent,
+    GenerateErrorComponent,
   ],
   imports: [
     BrowserModule,
