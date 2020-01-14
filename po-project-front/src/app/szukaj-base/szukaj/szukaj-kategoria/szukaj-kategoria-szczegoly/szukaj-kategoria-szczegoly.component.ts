@@ -12,25 +12,31 @@ import { Paczka } from 'src/app/model/paczka';
 export class SzukajKategoriaSzczegolyComponent implements OnInit {
 
   kategoria: string;
-  podkategoria: Map<string,string[]>;
+  podkategoria: Map<string, string[]>;
 
   constructor(private route: ActivatedRoute, private paczkaSerwis: PaczkaService, private router: Router) { }
 
   ngOnInit() {
     this.kategoria = decodeURIComponent(this.route.snapshot.queryParams.kategoria);
     this.podkategoria = new Map();
-    this.podkategoria.set("Elektronika",["Laptop","Komputery stacjonarne","Aparaty fotograficzne","Telefony komórkowe","Lodówki","Pralki","Konsole","Ładowarki","Klawiatury"]);
+    this.podkategoria.set("Elektronika", ["Laptop", "Komputery stacjonarne", "Aparaty fotograficzne", "Telefony komórkowe", "Lodówki", "Pralki", "Konsole", "Ładowarki", "Klawiatury"]);
   }
 
-  setListPaczka(item: string){
+  setListPaczka(item: string) {
     this.paczkaSerwis.getPaczkaByKategoria(item).pipe(map((items: Paczka[]) => {
-      for(let i of items){
-        i.kod_kreskowy %= 1000;
+      if (items != null) {
+        for (let i of items) {
+          i.kod_kreskowy %= 1000;
+        }
+        return items;
+      } else {
+        this.router.navigate(["../error"], { relativeTo: this.route, state: { errorMessage: "Brak danej kategorii paczek w magazynie", errorPath: "/home" } });
       }
-      return items;
     })).subscribe(data => {
       this.paczkaSerwis.listPaczka = data;
-      this.router.navigate(["../wyniki"],{relativeTo: this.route});
+      if (data != null) {
+        this.router.navigate(["../wyniki"], { relativeTo: this.route });
+      }
     });
   }
 
