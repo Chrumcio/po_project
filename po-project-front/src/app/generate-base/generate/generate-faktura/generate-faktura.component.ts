@@ -35,7 +35,7 @@ export class GenerateFakturaComponent implements OnInit {
       if(name != null){
         this.router.navigate(['../wyniki'],{relativeTo: this.route});
       }else{
-        this.router.navigate(['../error'],{relativeTo: this.route});
+        this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Wprowadzono błędne dane do faktury",errorPath:"../faktura"}});
       }
     }
   }

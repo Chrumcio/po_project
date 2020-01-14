@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-generate-error',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerateErrorComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string;
+  errorPath: string;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+    this.errorMessage = history.state.errorMessage;
+    this.errorPath = history.state.errorPath;
   }
 
 }
