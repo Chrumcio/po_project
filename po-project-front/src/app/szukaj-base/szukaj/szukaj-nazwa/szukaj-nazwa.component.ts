@@ -16,9 +16,9 @@ export class SzukajNazwaComponent implements OnInit {
 
   nazwa: string;
   paczka: Paczka[];
-  listName: Array<string> = ["Laptop","Smartfon"];
+  listName: Array<string> = ["Laptop", "Smartfon"];
 
-  @ViewChild("szukanieNazwaForm",{static: false}) formularz: NgForm;
+  @ViewChild("szukanieNazwaForm", { static: false }) formularz: NgForm;
 
   constructor(private route: ActivatedRoute, private router: Router, private paczkaSerwis: PaczkaService, private _location: Location, private konto: KontoSerwis) { }
 
@@ -27,37 +27,37 @@ export class SzukajNazwaComponent implements OnInit {
   }
 
   szukaj() {
-    if(this.formularz.valid){
+    if (this.formularz.valid) {
       this.nazwa = this.formularz.controls.nazwa.value;
-        let name = this.listName.find(item => {
-          return this.nazwa === item;
+      let name = this.listName.find(item => {
+        return this.nazwa === item;
+      });
+      if (name != null) {
+        this.paczkaSerwis.getPaczkaByName(this.nazwa).pipe(map(el => {
+          if (el != null) {
+            for (let e of el) {
+              e.kod_kreskowy = e.kod_kreskowy % 1000;
+            }
+            return el;
+          }
+        })).subscribe(data => {
+          this.paczka = data;
+          this.paczkaSerwis.listPaczka = data;
+          if (this.paczka != null) {
+            this.router.navigate(['../wyniki'], { relativeTo: this.route })
+          } else {
+            this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Brak podanej paczki w magazynie", errorPath: "/home" } });// adres do alertu o braku paczki w magazynie
+          }
         });
-        if(name != null){
-          this.paczkaSerwis.getPaczkaByName(this.nazwa).pipe(map(el => {
-            if(el != null){
-              for(let e of el){
-                e.kod_kreskowy = e.kod_kreskowy % 1000;
-              }
-              return el;
-            }
-          })).subscribe(data =>{
-            this.paczka = data;
-            this.paczkaSerwis.listPaczka = data;
-            if(this.paczka != null){
-              this.router.navigate(['../wyniki'],{relativeTo: this.route})
-            }else{
-              this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Brak podanej paczki w magazynie", errorPath: "/home"}});// adres do alertu o braku paczki w magazynie
-            }
-          });
-        }else{
-          this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Wprowadzono błędną nazwę paczki", errorPath: "../nazwa"}});//adres do alertu o braku takiej nazwy paczki
-        }
+      } else {
+        this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Wprowadzono błędną nazwę paczki", errorPath: "../nazwa" } });//adres do alertu o braku takiej nazwy paczki
       }
+    }
   }
 
-  logoutUser(){
+  logoutUser() {
     this.konto.setczyZalogowany(false);
-    this.router.navigate(['/','home']);
+    this.router.navigate(['/', 'home']);
   }
 
 }

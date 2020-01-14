@@ -9,32 +9,24 @@ import { NgForm } from '@angular/forms';
 })
 export class GenerateParagonComponent implements OnInit {
 
-  // paragon = {
-  //   imie: '',
-  //   nazwisko: '',
-  //   pesel: '',
-  //   dataUrodzenia: '',
-  //   nrPaczki: '',
-  //   oplata: 0.0
-  // }
-
   name: string;
   surname: string;
   pesel: string;
   dataOfBirth: Date;
   packageNumber: string;
 
-  customerNameList: Array<string> = ["Customer1","Customer2"];
-  
-  @ViewChild("generowanieParagonu",{static: false}) form: NgForm;
+  customerNameList: Array<string> = ["Customer1", "Customer2"];
+  customerSurnameList: Array<string> = ["surname1", "surname2"];
+
+  @ViewChild("generowanieParagonu", { static: false }) form: NgForm;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   }
 
-  generujParagon(){
-    if(this.form.valid){
+  generujParagon() {
+    if (this.form.valid) {
       this.name = this.form.controls.imie.value;
       this.surname = this.form.controls.nazwisko.value;
       this.pesel = this.form.controls.pesel.value;
@@ -43,10 +35,13 @@ export class GenerateParagonComponent implements OnInit {
       let name = this.customerNameList.find(item => {
         return this.name === item;
       });
-      if(name != null){
-        this.router.navigate(['../wyniki'],{relativeTo: this.route});
-      }else{
-        this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Wprowadzono błędne dane do paragonu",errorPath:"../paragon"}});
+      let surname = this.customerSurnameList.find(item => {
+        return this.surname === item;
+      });
+      if (name != null && surname != null) {
+        this.router.navigate(['../wyniki'], { relativeTo: this.route });
+      } else {
+        this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Wprowadzono błędne dane do paragonu", errorPath: "../paragon" } });
       }
     }
 
