@@ -50,6 +50,8 @@ const appRoutes: Routes = [
     {path:'',component:GenerateComponent},
     {path:'faktura',component:GenerateFakturaComponent},
     {path:'paragon',component:GenerateParagonComponent},
+    {path:'wyniki',component:GenerateWynikiComponent},
+    {path:'error',component:GenerateErrorComponent}
   ]}
 ];
 
