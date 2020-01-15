@@ -1,0 +1,9 @@
+<nav *ngIf="czyZalogowano">
+    <a routerLink="/home">Home</a>
+    <a routerLink="/szukaj">Search</a>
+    <a routerLink="/generuj">Generate</a>
+</nav>
+
+<nav *ngIf="!czyZalogowano">
+    <a routerLink="/home">Home</a>
+</nav>

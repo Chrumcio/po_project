@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import org.springframework.stereotype.Service;
+import com.example.po_project.model.Uzytkownik;
 
-@Service
-public class UzytkownikSerwis {
+public interface UzytkownikSerwis {
+    Uzytkownik findUzytkownikByKontoId(Long id);
 }

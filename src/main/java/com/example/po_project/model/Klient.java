@@ -1,13 +1,101 @@
 package com.example.po_project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Klient {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "imie")
+    private String imie;
+
+    @Column(name = "nazwisko")
+    private String nazwisko;
+
+    @Column(name = "pesel")
+    private String pesel;
+
+    @Column(name = "numer_dowodu")
+    private String numer_dowodu;
+
+    @Column(name = "czy_staly")
+    private boolean czy_staly;
+
+    @Column(name = "kontoid")
+    private Long kontoid;
+
+    public Klient() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public void setImie(String imie) {
+        this.imie = imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
+
+    public void setNazwisko(String nazwisko) {
+        this.nazwisko = nazwisko;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getNumer_dowodu() {
+        return numer_dowodu;
+    }
+
+    public void setNumer_dowodu(String numer_dowodu) {
+        this.numer_dowodu = numer_dowodu;
+    }
+
+    public boolean isCzy_staly() {
+        return czy_staly;
+    }
+
+    public void setCzy_staly(boolean czy_staly) {
+        this.czy_staly = czy_staly;
+    }
+
+    public Long getKontoid() {
+        return kontoid;
+    }
+
+    public void setKontoid(Long kontoid) {
+        this.kontoid = kontoid;
+    }
+
+    @Override
+    public String toString() {
+        return "Klient{" +
+                "id=" + id +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", pesel='" + pesel + '\'' +
+                ", numer_dowodu='" + numer_dowodu + '\'' +
+                ", czy_staly=" + czy_staly +
+                ", kontoid=" + kontoid +
+                '}';
+    }
 }

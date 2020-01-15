@@ -1,0 +1,14 @@
+<h1 class="pb-5" id="headerText">System wspomagający pracę na magazynie</h1>
+<div class="row">
+  <div class="col-sm-4 text-center">
+    <img src="../assets/images/wykres1.png" alt="wykres1" id="wyk1">
+  </div>
+  <div class="col-sm-6 text-center">
+    <img src="../assets/images/wykres2.png" alt="wykres2" id="wyk2">
+  </div>
+  <div class="col-sm-2 justify-content-center">
+    <app-login-form *ngIf="!czyZalogowano"></app-login-form>
+    <app-zalogowano *ngIf="czyZalogowano"></app-zalogowano>
+      <ejs-calendar [value]='value' [min]='minDate' [max]='maxDate' id="calendar"></ejs-calendar>
+  </div>
+</div>

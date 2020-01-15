@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import org.springframework.stereotype.Service;
+import com.example.po_project.model.TypKonta;
 
-@Service
-public class TypKontaSerwis {
+public interface TypKontaSerwis {
+    TypKonta getTypKontaById(Long id);
 }

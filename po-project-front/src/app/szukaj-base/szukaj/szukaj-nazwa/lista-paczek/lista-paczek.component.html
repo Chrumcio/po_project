@@ -1,0 +1,20 @@
+<div class="mt-5 pt-1">
+    <table class="table table-striped mt-5 table-light">
+        <thead>
+            <th scope="col">Nazwa</th>
+            <th scope="col" (click)="sortTable()">Unikalny kod paczki - ostatnie 3 cyfry<fa-icon [icon]="['fas','sort']"></fa-icon></th>
+            <th scope="col">Aleja</th>
+            <th scope="col">Sektor</th>
+            <th scope="col">Półka</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let paczka of listPaczka">
+                <th scope="row">{{paczka.nazwa}}</th>
+                <td>{{paczka.kod_kreskowy.toString().padStart(3,"0")}}</td>
+                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.aleja}}</td>
+                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.blok}}</td>
+                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.numer_polki}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

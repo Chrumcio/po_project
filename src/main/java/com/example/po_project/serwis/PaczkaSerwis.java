@@ -1,7 +1,10 @@
 package com.example.po_project.serwis;
 
-import org.springframework.stereotype.Service;
+import com.example.po_project.model.Paczka;
 
-@Service
-public class PaczkaSerwis {
+import java.util.List;
+
+public interface PaczkaSerwis {
+    List<Paczka> getPaczkaByName(String name);
+    List<Paczka> getPaczkaByKategoria(String kategoria);
 }

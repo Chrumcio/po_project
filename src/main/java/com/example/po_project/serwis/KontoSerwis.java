@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import org.springframework.stereotype.Service;
+import com.example.po_project.model.Konto;
 
-@Service
-public class KontoSerwis {
+public interface KontoSerwis {
+    Konto getKontoByLogin(String login, String password);
 }
