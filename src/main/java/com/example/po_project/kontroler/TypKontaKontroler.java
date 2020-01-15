@@ -4,7 +4,6 @@ import com.example.po_project.dto.TypKontaDto;
 import com.example.po_project.model.TypKonta;
 import com.example.po_project.serwis.TypKontaSerwisImpl;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

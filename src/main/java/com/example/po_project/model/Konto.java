@@ -1,18 +1,22 @@
 package com.example.po_project.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Table(name = "konto")
 @Entity
 public class Konto {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "login")
     private String login;
+
+    @Column(name = "haslo")
     private String haslo;
+
+    @Column(name = "typ_kontaid")
     private Long typ_kontaid;
 
     public Konto() {

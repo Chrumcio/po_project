@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PaczkaSerwisImpl {
+public class PaczkaSerwisImpl implements PaczkaSerwis{
 
     private PaczkaRepozytorium paczkaRepozytorium;
 

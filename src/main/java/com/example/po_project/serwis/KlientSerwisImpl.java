@@ -5,7 +5,7 @@ import com.example.po_project.repozytorium.KlientRepozytorium;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KlientSerwisImpl {
+public class KlientSerwisImpl implements KlientSerwis{
 
     private KlientRepozytorium klientRepozytorium;
 
