@@ -13,7 +13,6 @@ export class GenerateFakturaComponent implements OnInit {
   companyAddress: string;
   companyNIP: string;
   packageNumber: string;
-
   companyNameList: Array<string> = ["Company1","Company2"];
 
   @ViewChild("generowanieFaktury",{static: false}) form: NgForm;

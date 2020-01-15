@@ -1,41 +1,44 @@
 <div class="col-sm-9 text-center pt-5">
     <form (ngSubmit)="generujFaktura()" #generowanieFaktury="ngForm">
         <div class="form-group row m-0">
-            <label class="col-sm-4 col-form-label text-center">Nazwa Firmy:</label>
+            <label class="col-sm-4 col-form-label text-center text-white">Nazwa Firmy:</label>
             <div class="col-sm-8">
                 <input type="text" placeholder="Nazwa Firmy" id="nazwaFirmy" ngModel class="form-control" name="nazwaFirmy"
                     required="required"><br>
             </div>
         </div>
         <div class="form-group row m-0">
-            <label class="col-sm-4 col-form-label text-center">Adres Firmy:</label>
+            <label class="col-sm-4 col-form-label text-center text-white">Adres Firmy:</label>
             <div class="col-sm-8">
                 <input type="text" placeholder="Adres Firmy" id="adresFirmy" ngModel class="form-control" name="adresFirmy"
                     required="required"><br>
             </div>
         </div>
         <div class="form-group row m-0">
-            <label class="col-sm-4 col-form-label text-center">NIP:</label>
+            <label class="col-sm-4 col-form-label text-center text-white">NIP:</label>
             <div class="col-sm-8">
                 <input type="text" placeholder="NIP" id="nip" ngModel class="form-control" name="nip"
                     required="required"><br>
             </div>
         </div>
         <div class="form-group row m-0">
-            <label class="col-sm-4 col-form-label text-center">Numer Paczki:</label>
+            <label class="col-sm-4 col-form-label text-center text-white">Numer Paczki:</label>
             <div class="col-sm-8">
                 <input type="text" id="numerPaczki" placeholder="Numer Paczki" ngModel class="form-control" name="numerPaczki"
                     required="required"><br>
             </div>
         </div>
-        <!-- Tu ma byc pole do wprowadzania oplaty -->
-        <!-- <div class="form-group row m-0"> 
-            <label class="col-sm-4 col-form-label text-center">Opłata:</label>
+        <div class="form-group row m-0"> 
+            <label class="col-sm-4 col-form-label text-center text-white">Opłata:</label>
             <div class="col-sm-8">
-                <input type="text" placeholder="Opłata" id="oplata" class="form-control" name="money" value="{{paragon.oplata | currency:'PLN':'symbol':undefined:'pl-PL'}}" [(ngModel)]="paragon.oplata"
-                    required="required"><br>
+                <div class="input-group">
+                    <input type="number" min="0.01" step="0.01" max="2500" value="25.67" id="oplata" class="form-control" aria-label="Amount (to the nearest dollar)">
+                    <div class="input-group-append">
+                        <span class="input-group-text">PLN</span>
+                    </div>
+                </div>
             </div>
-        </div> -->
+        </div>
         <div class="form-group pb-1">
             <input type="submit" value="Generuj" class="btn btn-primary btn-block">
         </div>

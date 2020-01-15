@@ -14,7 +14,6 @@ export class GenerateParagonComponent implements OnInit {
   pesel: string;
   dataOfBirth: Date;
   packageNumber: string;
-
   customerNameList: Array<string> = ["Customer1", "Customer2"];
   customerSurnameList: Array<string> = ["surname1", "surname2"];
 
