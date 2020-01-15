@@ -5,15 +5,15 @@ import com.example.po_project.repozytorium.TypKontaRepozytorium;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TypKontaSerwis {
+public class TypKontaSerwisImpl {
 
     private TypKontaRepozytorium typKontaRepozytorium;
 
-    public TypKontaSerwis(TypKontaRepozytorium typKontaRepozytorium) {
+    public TypKontaSerwisImpl(TypKontaRepozytorium typKontaRepozytorium) {
         this.typKontaRepozytorium = typKontaRepozytorium;
     }
 
     public TypKonta getTypKontaById(Long id){
-        return this.typKontaRepozytorium.findByid(id);
+        return this.typKontaRepozytorium.findById(id).get();
     }
 }

@@ -7,29 +7,21 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PaczkaSerwis {
+public class PaczkaSerwisImpl {
 
     private PaczkaRepozytorium paczkaRepozytorium;
 
-    public PaczkaSerwis(PaczkaRepozytorium paczkaRepozytorium) {
+    public PaczkaSerwisImpl(PaczkaRepozytorium paczkaRepozytorium) {
         this.paczkaRepozytorium = paczkaRepozytorium;
     }
 
     public List<Paczka> getPaczkaByName(String name) {
         List<Paczka> paczkaList = paczkaRepozytorium.findByNazwa(name);
-        if(paczkaList.isEmpty()){
-            return null;
-        }else{
-            return paczkaList;
-        }
+        return paczkaList;
     }
 
     public List<Paczka> getPaczkaByKategoria(String kategoria){
         List<Paczka> paczkaList = paczkaRepozytorium.findByKategoria(kategoria);
-        if(paczkaList.isEmpty()){
-            return null;
-        }else {
-            return paczkaList;
-        }
+        return paczkaList;
     }
 }

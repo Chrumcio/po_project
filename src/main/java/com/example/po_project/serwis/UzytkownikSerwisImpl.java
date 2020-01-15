@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UzytkownikSerwis {
+public class UzytkownikSerwisImpl {
 
     private UzytkownikRepozytorium uzytkownikRepozytorium;
 
-    public UzytkownikSerwis(UzytkownikRepozytorium uzytkownikRepozytorium) {
+    public UzytkownikSerwisImpl(UzytkownikRepozytorium uzytkownikRepozytorium) {
         this.uzytkownikRepozytorium = uzytkownikRepozytorium;
     }
 

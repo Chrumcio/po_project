@@ -5,11 +5,11 @@ import com.example.po_project.repozytorium.KlientRepozytorium;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KlientSerwis {
+public class KlientSerwisImpl {
 
     private KlientRepozytorium klientRepozytorium;
 
-    public KlientSerwis(KlientRepozytorium klientRepozytorium) {
+    public KlientSerwisImpl(KlientRepozytorium klientRepozytorium) {
         this.klientRepozytorium = klientRepozytorium;
     }
 

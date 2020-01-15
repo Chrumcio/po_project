@@ -5,23 +5,19 @@ import com.example.po_project.repozytorium.KontoRepozytorium;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KontoSerwis {
+public class KontoSerwisImpl {
 
     private KontoRepozytorium kontoRepozytorium;
 
-    public KontoSerwis(KontoRepozytorium kontoRepozytorium) {
+    public KontoSerwisImpl(KontoRepozytorium kontoRepozytorium) {
         this.kontoRepozytorium = kontoRepozytorium;
     }
 
     public Konto getKontoByLogin(String login,String password){
         Konto konto = kontoRepozytorium.findByLogin(login);
-        if(konto == null){
-            return null;
-        }else{
-            String haslo = konto.getHaslo();
-            if(haslo.equals(password)){
-                return konto;
-            }
+        if(konto.getHaslo().equals(password)){
+            return konto;
+        }else {
             return null;
         }
     }

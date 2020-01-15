@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class AnkietaSerwis {
+public class AnkietaSerwisImpl {
 
     @Autowired
     private AnkietaRepozytorium ankietaRepozytorium;
 
     public List<Ankieta> findAll(){
         return (List<Ankieta>)ankietaRepozytorium.findAll();
+    }
+
+    public Ankieta findAniketaById(Long id){
+        return ankietaRepozytorium.findAnkietaById(id);
     }
 }

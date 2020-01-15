@@ -1,7 +1,9 @@
 package com.example.po_project.kontroler;
 
+import com.example.po_project.dto.TypKontaDto;
 import com.example.po_project.model.TypKonta;
-import com.example.po_project.serwis.TypKontaSerwis;
+import com.example.po_project.serwis.TypKontaSerwisImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,14 +12,20 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class TypKontaKontroler {
 
-    private TypKontaSerwis typKontaSerwis;
+    private TypKontaSerwisImpl typKontaSerwisImpl;
+    private ModelMapper modelMapper;
 
-    public TypKontaKontroler(TypKontaSerwis typKontaSerwis) {
-        this.typKontaSerwis = typKontaSerwis;
+    public TypKontaKontroler(TypKontaSerwisImpl typKontaSerwisImpl,ModelMapper modelMapper) {
+        this.typKontaSerwisImpl = typKontaSerwisImpl;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TypKonta> getTypKontaById(@PathVariable(value = "id")Long id){
-        return ResponseEntity.ok(typKontaSerwis.getTypKontaById(id));
+    public TypKontaDto getTypKontaById(@PathVariable(value = "id")Long id){
+        return convertToDto(typKontaSerwisImpl.getTypKontaById(id));
+    }
+
+    private TypKontaDto convertToDto(TypKonta typKonta){
+        return modelMapper.map(typKonta,TypKontaDto.class);
     }
 }

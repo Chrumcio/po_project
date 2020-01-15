@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MiejsceMagazynoweSerwis {
+public class MiejsceMagazynoweSerwisImpl {
 
     private MiejsceMagazynoweRepozytorium miejsceMagazynoweRepozytorium;
 
-    public MiejsceMagazynoweSerwis(MiejsceMagazynoweRepozytorium miejsceMagazynoweRepozytorium) {
+    public MiejsceMagazynoweSerwisImpl(MiejsceMagazynoweRepozytorium miejsceMagazynoweRepozytorium) {
         this.miejsceMagazynoweRepozytorium = miejsceMagazynoweRepozytorium;
     }
 
