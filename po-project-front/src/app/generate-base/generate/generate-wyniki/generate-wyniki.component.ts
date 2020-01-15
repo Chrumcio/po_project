@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DokumentyService } from 'src/app/serwis/dokumenty.service';
 
 @Component({
   selector: 'app-generate-wyniki',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenerateWynikiComponent implements OnInit {
 
-  constructor() { }
+  imagePath: string;
+
+  constructor(private documentsService: DokumentyService) { }
 
   ngOnInit() {
+    this.imagePath = this.documentsService.address;
   }
 
 }

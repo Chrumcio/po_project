@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { DokumentyService } from 'src/app/serwis/dokumenty.service';
 
 @Component({
   selector: 'app-generate-paragon',
@@ -19,7 +20,7 @@ export class GenerateParagonComponent implements OnInit {
 
   @ViewChild("generowanieParagonu", { static: false }) form: NgForm;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private documentsService: DokumentyService) { }
 
   ngOnInit() {
   }
@@ -38,6 +39,7 @@ export class GenerateParagonComponent implements OnInit {
         return this.surname === item;
       });
       if (name != null && surname != null) {
+        this.documentsService.address = "";
         this.router.navigate(['../wyniki'], { relativeTo: this.route });
       } else {
         this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Wprowadzono błędne dane do paragonu", errorPath: "../paragon" } });

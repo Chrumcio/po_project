@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DokumentyService } from 'src/app/serwis/dokumenty.service';
 
 @Component({
   selector: 'app-generate-faktura',
@@ -17,7 +18,7 @@ export class GenerateFakturaComponent implements OnInit {
 
   @ViewChild("generowanieFaktury",{static: false}) form: NgForm;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private documentsService: DokumentyService) { }
 
   ngOnInit() {
   }
@@ -32,6 +33,7 @@ export class GenerateFakturaComponent implements OnInit {
         return this.companyName === item;
       });
       if(name != null){
+        this.documentsService.address = "../../../../assets/images/acer.jpg";
         this.router.navigate(['../wyniki'],{relativeTo: this.route});
       }else{
         this.router.navigate(['../error'],{relativeTo: this.route, state: {errorMessage: "Wprowadzono błędne dane do faktury",errorPath:"../faktura"}});
