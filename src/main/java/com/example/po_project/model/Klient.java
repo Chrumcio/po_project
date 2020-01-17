@@ -29,6 +29,9 @@ public class Klient {
     @Column(name = "kontoid")
     private Long kontoid;
 
+    @Column(name = "nip")
+    private String nip;
+
     @OneToMany(mappedBy = "klientid")
     private List<Dokument> dokumentList;
 
@@ -91,6 +94,14 @@ public class Klient {
         this.kontoid = kontoid;
     }
 
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
+    }
+
     public List<Dokument> getDokumentList() {
         return dokumentList;
     }
@@ -109,6 +120,7 @@ public class Klient {
                 ", numer_dowodu='" + numer_dowodu + '\'' +
                 ", czy_staly=" + czy_staly +
                 ", kontoid=" + kontoid +
+                ", nip='" + nip + '\'' +
                 ", dokumentList=" + dokumentList +
                 '}';
     }

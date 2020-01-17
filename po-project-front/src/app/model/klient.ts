@@ -3,4 +3,6 @@ export class Klient{
     imie: string;
     nazwisko: string;
     kontoid: number;
+    pesel: string;
+    nip: string;
 }

@@ -6,6 +6,8 @@ public class KlientDto {
     private String imie;
     private String nazwisko;
     private Long kontoid;
+    private String pesel;
+    private String nip;
 
     public Long getId() {
         return id;
@@ -37,6 +39,22 @@ public class KlientDto {
 
     public void setKontoid(Long kontoid) {
         this.kontoid = kontoid;
+    }
+
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
+    public String getNip() {
+        return nip;
+    }
+
+    public void setNip(String nip) {
+        this.nip = nip;
     }
 
     @Override

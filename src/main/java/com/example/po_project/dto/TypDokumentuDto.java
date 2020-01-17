@@ -2,7 +2,16 @@ package com.example.po_project.dto;
 
 public class TypDokumentuDto {
 
+    private Long id;
     private String nazwa;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNazwa() {
         return nazwa;
@@ -15,7 +24,8 @@ public class TypDokumentuDto {
     @Override
     public String toString() {
         return "TypDokumentuDto{" +
-                "nazwa='" + nazwa + '\'' +
+                "id=" + id +
+                ", nazwa='" + nazwa + '\'' +
                 '}';
     }
 }
