@@ -1,6 +1,7 @@
 package com.example.po_project.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "uzytkownik")
 @Entity
@@ -27,6 +28,9 @@ public class Uzytkownik {
 
     @Column(name = "nazwisko")
     private String nazwisko;
+
+    @OneToMany(mappedBy = "uzytkownikid")
+    private List<Dokument> dokumentList;
 
     public Uzytkownik() {
     }
@@ -95,6 +99,14 @@ public class Uzytkownik {
         this.nazwisko = nazwisko;
     }
 
+    public List<Dokument> getDokumentList() {
+        return dokumentList;
+    }
+
+    public void setDokumentList(List<Dokument> dokumentList) {
+        this.dokumentList = dokumentList;
+    }
+
     @Override
     public String toString() {
         return "Uzytkownik{" +
@@ -105,6 +117,7 @@ public class Uzytkownik {
                 ", kontoid=" + kontoid +
                 ", imie='" + imie + '\'' +
                 ", nazwisko='" + nazwisko + '\'' +
+                ", dokumentList=" + dokumentList +
                 '}';
     }
 }
