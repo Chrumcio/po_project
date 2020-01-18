@@ -1,8 +1,10 @@
+import { Konto } from './konto';
+
 export class Klient{
     id: number;
     imie: string;
     nazwisko: string;
-    kontoid: number;
+    kontoid: Konto;
     pesel: string;
     nip: string;
 }

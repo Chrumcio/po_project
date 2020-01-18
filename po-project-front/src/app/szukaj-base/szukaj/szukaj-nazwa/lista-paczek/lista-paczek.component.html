@@ -11,9 +11,9 @@
             <tr *ngFor="let paczka of listPaczka">
                 <th scope="row">{{paczka.nazwa}}</th>
                 <td>{{paczka.kod_kreskowy.toString().padStart(3,"0")}}</td>
-                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.aleja}}</td>
-                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.blok}}</td>
-                <td>{{findMiejsceMagazynoweById(paczka.miejsce_magazynowe_id)?.numer_polki}}</td>
+                <td>{{paczka.miejsce_magazynowe_id.aleja}}</td>
+                <td>{{paczka.miejsce_magazynowe_id.blok}}</td>
+                <td>{{paczka.miejsce_magazynowe_id.numer_polki}}</td>
             </tr>
         </tbody>
     </table>

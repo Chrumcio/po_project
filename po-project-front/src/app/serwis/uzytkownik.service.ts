@@ -16,6 +16,6 @@ export class UzytkownikService {
   }
 
   getUzytkownikByKontoId(id: number):Observable<Uzytkownik>{
-    return this.http.get<Uzytkownik>(`${this.url}/kontoid/${id}`);
+    return this.http.get<Uzytkownik>(`${this.url}/id/${id}`);
   }
 }

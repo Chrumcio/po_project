@@ -28,10 +28,6 @@ export class ListaPaczekComponent implements OnInit {
     });
   }
 
-  findMiejsceMagazynoweById(id:number){
-    return this.listMiejsceMagazynowe.find(item => item.id === id);
-  }
-
   private compare(a: Paczka,b: Paczka){
     return a.kod_kreskowy - b.kod_kreskowy;
   }
