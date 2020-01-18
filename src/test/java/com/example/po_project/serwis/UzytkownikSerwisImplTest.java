@@ -27,7 +27,7 @@ public class UzytkownikSerwisImplTest {
         Uzytkownik uzytkownik = new Uzytkownik();
         uzytkownik.setNazwisko("nazwisko");
         uzytkownik.setImie("imie");
-        Mockito.when(uzytkownikRepozytorium.findById(1l).get()).thenReturn(uzytkownik);
+        Mockito.when(uzytkownikRepozytorium.findById(1l)).thenReturn(java.util.Optional.of(uzytkownik));
 
         assertThat(uzytkownikSerwis.findUzytkownikById(1l).getImie()).isEqualTo(uzytkownik.getImie());
         assertThat(uzytkownikSerwis.findUzytkownikById(1l).getNazwisko()).isEqualTo(uzytkownik.getNazwisko());
