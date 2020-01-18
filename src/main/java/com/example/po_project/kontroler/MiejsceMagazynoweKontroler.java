@@ -12,6 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Klasa MiejsceMagazynoweKontroler jest klasą kontrolera z
+ * adnotacjami: @RestController, @RequestMapping, @CrossOrigin
+ * Pierwsza adnotacja jest wymagana i jest specjalistyczną wersją kontrolera
+ * Druga adnotacja jest adnotacją ustawiającą ścieżkę ogólną do kontrolera,
+ * aby odwoływać się do kontrolera w przeglądarce wpisując odpowiedni adres
+ * Trzecia adnitacja jest adnotacja zezwalająca na żądania krzyżowe dotyczące
+ * określonych klas procedur obsługi i / lub metod procedur obsługi.
+ */
 @RestController
 @RequestMapping("/miejsceMagazynowe")
 @CrossOrigin
@@ -23,6 +32,13 @@ public class MiejsceMagazynoweKontroler {
         this.miejsceMagazynoweSerwisImpl = miejsceMagazynoweSerwisImpl;
     }
 
+    /**
+     * Metoda opatrzona adnotacją @GetMapping oznaczającą, że
+     * jest obsługiwane pod podanym adresem /all GET, który
+     * pobiera dane z serwisu i wysyła je pod wskazany adres.
+     * @return List<MiejsceMagazynoweDto> Lista wszystkich dostępnych
+     * miejsc magazynowych
+     */
     @GetMapping("/all")
     public List<MiejsceMagazynoweDto> getAllMiejsceMagazynowe(){
         return miejsceMagazynoweSerwisImpl.getAllMiejsceMagazynowe();
