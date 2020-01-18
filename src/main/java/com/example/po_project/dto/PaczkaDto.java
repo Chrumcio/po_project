@@ -4,7 +4,7 @@ public class PaczkaDto {
 
     private Long id;
     private String kategoria;
-    private Long miejsce_magazynowe_id;
+    private MiejsceMagazynoweDto miejsce_magazynowe_id;
     private String nazwa;
     private Long kod_kreskowy;
 
@@ -24,11 +24,11 @@ public class PaczkaDto {
         this.kategoria = kategoria;
     }
 
-    public Long getMiejsce_magazynowe_id() {
+    public MiejsceMagazynoweDto getMiejsce_magazynowe_id() {
         return miejsce_magazynowe_id;
     }
 
-    public void setMiejsce_magazynowe_id(Long miejsce_magazynowe_id) {
+    public void setMiejsce_magazynowe_id(MiejsceMagazynoweDto miejsce_magazynowe_id) {
         this.miejsce_magazynowe_id = miejsce_magazynowe_id;
     }
 

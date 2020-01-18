@@ -1,6 +1,7 @@
 package com.example.po_project.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "miejscemagazynowe")
 @Entity

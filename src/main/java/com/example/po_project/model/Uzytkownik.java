@@ -20,8 +20,9 @@ public class Uzytkownik {
     @Column(name = "data_rejestracji")
     private Long data_rejestracji;
 
-    @Column(name = "kontoid")
-    private Long kontoid;
+    @OneToOne
+    @JoinColumn(name = "kontoid",referencedColumnName = "id",nullable = false)
+    private Konto kontoid;
 
     @Column(name = "imie")
     private String imie;
@@ -35,7 +36,7 @@ public class Uzytkownik {
     public Uzytkownik() {
     }
 
-    public Uzytkownik(Long id, String email, String numer_telefonu, Long data_rejestracji, Long kontoid){
+    public Uzytkownik(Long id, String email, String numer_telefonu, Long data_rejestracji, Konto kontoid){
         this.id = id;
         this.email = email;
         this.numer_telefonu = numer_telefonu;
@@ -75,11 +76,11 @@ public class Uzytkownik {
         this.data_rejestracji = data_rejestracji;
     }
 
-    public Long getKontoid() {
+    public Konto getKontoid() {
         return kontoid;
     }
 
-    public void setKontoid(Long kontoid) {
+    public void setKontoid(Konto kontoid) {
         this.kontoid = kontoid;
     }
 

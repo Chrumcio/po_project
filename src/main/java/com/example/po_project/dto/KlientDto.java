@@ -5,7 +5,7 @@ public class KlientDto {
     private Long id;
     private String imie;
     private String nazwisko;
-    private Long kontoid;
+    private KontoDto kontoid;
     private String pesel;
     private String nip;
 
@@ -33,11 +33,11 @@ public class KlientDto {
         this.nazwisko = nazwisko;
     }
 
-    public Long getKontoid() {
+    public KontoDto getKontoid() {
         return kontoid;
     }
 
-    public void setKontoid(Long kontoid) {
+    public void setKontoid(KontoDto kontoid) {
         this.kontoid = kontoid;
     }
 

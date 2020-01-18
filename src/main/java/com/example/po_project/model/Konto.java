@@ -16,13 +16,20 @@ public class Konto {
     @Column(name = "haslo")
     private String haslo;
 
-    @Column(name = "typ_kontaid")
-    private Long typ_kontaid;
+    @ManyToOne
+    @JoinColumn(name = "typ_kontaid",referencedColumnName = "id")
+    private TypKonta typ_kontaid;
+
+    @OneToOne(mappedBy = "kontoid")
+    private Klient klient;
+
+    @OneToOne(mappedBy = "kontoid")
+    private Uzytkownik uzytkownik;
 
     public Konto() {
     }
 
-    public Konto(Long id, String login, String haslo, Long typ_kontaid){
+    public Konto(Long id, String login, String haslo, TypKonta typ_kontaid){
         this.id = id;
         this.login = login;
         this.haslo = haslo;
@@ -53,12 +60,28 @@ public class Konto {
         this.haslo = haslo;
     }
 
-    public Long getTyp_kontaid() {
+    public TypKonta getTyp_kontaid() {
         return typ_kontaid;
     }
 
-    public void setTyp_kontaid(Long typ_kontaid) {
+    public void setTyp_kontaid(TypKonta typ_kontaid) {
         this.typ_kontaid = typ_kontaid;
+    }
+
+    public Klient getKlient() {
+        return klient;
+    }
+
+    public void setKlient(Klient klient) {
+        this.klient = klient;
+    }
+
+    public Uzytkownik getUzytkownik() {
+        return uzytkownik;
+    }
+
+    public void setUzytkownik(Uzytkownik uzytkownik) {
+        this.uzytkownik = uzytkownik;
     }
 
     @Override

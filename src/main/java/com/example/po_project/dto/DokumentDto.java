@@ -1,13 +1,9 @@
 package com.example.po_project.dto;
 
-import com.example.po_project.model.Klient;
-import com.example.po_project.model.TypDokumentu;
-import com.example.po_project.model.Uzytkownik;
-
 public class DokumentDto {
 
     private Long data_wystawienia;
-    private TypDokumentu typ_dokumentuid;
+    private TypDokumentuDto typ_dokumentuid;
     private UzytkownikDto uzytkownikid;
     private KlientDto klientid;
 
@@ -19,11 +15,11 @@ public class DokumentDto {
         this.data_wystawienia = data_wystawienia;
     }
 
-    public TypDokumentu getTyp_dokumentuid() {
+    public TypDokumentuDto getTyp_dokumentuid() {
         return typ_dokumentuid;
     }
 
-    public void setTyp_dokumentuid(TypDokumentu typ_dokumentuid) {
+    public void setTyp_dokumentuid(TypDokumentuDto typ_dokumentuid) {
         this.typ_dokumentuid = typ_dokumentuid;
     }
 

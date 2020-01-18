@@ -21,17 +21,4 @@ public class KlientRepozytoriumTest {
     @Autowired
     private KlientRepozytorium klientRepozytorium;
 
-    @Test
-    public void getKlientByKontoId(){
-        Long id = 1l;
-        Klient klient = new Klient();
-        klient.setKontoid(id);
-        klient.setImie("Jan");
-        entityManager.persist(klient);
-        entityManager.flush();
-
-        Klient found = klientRepozytorium.findKlientByKontoid(klient.getKontoid());
-
-        assertThat(found.getImie()).isEqualTo(klient.getImie());
-    }
 }

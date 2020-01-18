@@ -13,6 +13,7 @@ public class TypKonta {
     @Column(name = "nazwa")
     private String nazwa;
 
+
     public TypKonta() {
     }
 

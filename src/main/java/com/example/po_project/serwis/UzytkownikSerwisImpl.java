@@ -17,12 +17,14 @@ public class UzytkownikSerwisImpl implements UzytkownikSerwis{
         this.modelMapper = modelMapper;
     }
 
-    public UzytkownikDto findUzytkownikByKontoId(Long id){
-        Uzytkownik uzytkownik = uzytkownikRepozytorium.findUzytkownikByKontoid(id);
-        UzytkownikDto uzytkownikDto = null;
-        if(uzytkownik != null){
-            uzytkownikDto = modelMapper.map(uzytkownik,UzytkownikDto.class);
+    public UzytkownikDto findUzytkownikById(Long id){
+        Uzytkownik uzytkownik;
+        try {
+            uzytkownik = uzytkownikRepozytorium.findById(id).get();
+        }catch (Exception e){
+            return null;
         }
+        UzytkownikDto uzytkownikDto = modelMapper.map(uzytkownik,UzytkownikDto.class);
         return uzytkownikDto;
     }
 }

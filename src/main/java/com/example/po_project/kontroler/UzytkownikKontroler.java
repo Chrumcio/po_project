@@ -17,8 +17,8 @@ public class UzytkownikKontroler {
         this.uzytkownikSerwisImpl = uzytkownikSerwisImpl;
     }
 
-    @GetMapping("/kontoid/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<UzytkownikDto> findUzytkownikByKontoId(@PathVariable(value = "id") Long id){
-        return ResponseEntity.ok().body(uzytkownikSerwisImpl.findUzytkownikByKontoId(id));
+        return ResponseEntity.ok().body(uzytkownikSerwisImpl.findUzytkownikById(id));
     }
 }

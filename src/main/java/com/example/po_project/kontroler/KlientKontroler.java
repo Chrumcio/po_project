@@ -16,8 +16,8 @@ public class KlientKontroler {
         this.klientSerwisImpl = klientSerwisImpl;
     }
 
-    @GetMapping("/kontoid/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<KlientDto> getKlientByKontoId(@PathVariable(value = "id")Long id){
-        return ResponseEntity.ok().body(klientSerwisImpl.getKlientByKontoId(id));
+        return ResponseEntity.ok().body(klientSerwisImpl.getKlientById(id));
     }
 }

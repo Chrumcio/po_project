@@ -29,14 +29,14 @@ public class KlientSerwisImplTest {
         Klient klient = new Klient();
         klient.setId(1l);
         klient.setImie("Jan");
-        Mockito.when(klientRepozytorium.findKlientByKontoid(1l)).thenReturn(klient);
+        Mockito.when(klientRepozytorium.findById(1l)).thenReturn(java.util.Optional.of(klient));
     }
 
     @Test
     public void getKlientByKontoIdFoundTest(){
         Long id = 1l;
         String name = "Jan";
-        KlientDto found = klientSerwis.getKlientByKontoId(id);
+        KlientDto found = klientSerwis.getKlientById(id);
 
         assertThat(found.getImie()).isEqualTo(name);
     }
@@ -45,7 +45,7 @@ public class KlientSerwisImplTest {
     public void getKlientByKontoIdNotFoundTest(){
         Long id = 342424234l;
         String name = "Klient";
-        KlientDto notFound = klientSerwis.getKlientByKontoId(id);
+        KlientDto notFound = klientSerwis.getKlientById(id);
 
         assertThat(notFound).isNull();
     }

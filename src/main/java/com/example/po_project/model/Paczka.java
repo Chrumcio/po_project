@@ -13,8 +13,9 @@ public class Paczka {
     @Column(name = "kategoria")
     private String kategoria;
 
-    @Column(name = "miejsce_magazynowe_id")
-    private Long miejsce_magazynowe_id;
+    @ManyToOne
+    @JoinColumn(name = "miejsce_magazynowe_id",referencedColumnName = "id")
+    private MiejsceMagazynowe miejsce_magazynowe_id;
 
     @Column(name = "nazwa")
     private String nazwa;
@@ -37,7 +38,7 @@ public class Paczka {
     public Paczka() {
     }
 
-    public Paczka(Long id,String nazwa,Long kod_kreskowy,String kog_qr,double wartosc, boolean czy_ubezpieczona, Long miejsceMagazynoweid, Long magazynid){
+    public Paczka(Long id,String nazwa,Long kod_kreskowy,String kog_qr,double wartosc, boolean czy_ubezpieczona, MiejsceMagazynowe miejsceMagazynoweid, Long magazynid){
         this.id = id;
         this.nazwa = nazwa;
         this.kod_kreskowy = kod_kreskowy;
@@ -64,11 +65,11 @@ public class Paczka {
         this.kategoria = kategoria;
     }
 
-    public Long getMiejsce_magazynowe_id() {
+    public MiejsceMagazynowe getMiejsce_magazynowe_id() {
         return miejsce_magazynowe_id;
     }
 
-    public void setMiejsce_magazynowe_id(Long miejsce_magazynowe_id) {
+    public void setMiejsce_magazynowe_id(MiejsceMagazynowe miejsce_magazynowe_id) {
         this.miejsce_magazynowe_id = miejsce_magazynowe_id;
     }
 
@@ -112,13 +113,6 @@ public class Paczka {
         this.czy_ubezpieczona = czy_ubezpieczona;
     }
 
-    public Long getMiejsceMagazynoweid() {
-        return this.miejsce_magazynowe_id;
-    }
-
-    public void setMiejsceMagazynoweid(Long miejsceMagazynoweid) {
-        this.miejsce_magazynowe_id = miejsceMagazynoweid;
-    }
 
     public Long getMagazynid() {
         return magazynid;

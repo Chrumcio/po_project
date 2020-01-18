@@ -5,7 +5,7 @@ public class KontoDto {
     private Long id;
     private String login;
     private String haslo;
-    private Long typ_kontaid;
+    private TypKontaDto typ_kontaid;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class KontoDto {
         this.haslo = haslo;
     }
 
-    public Long getTyp_kontaid() {
+    public TypKontaDto getTyp_kontaid() {
         return typ_kontaid;
     }
 
-    public void setTyp_kontaid(Long typ_kontaid) {
+    public void setTyp_kontaid(TypKontaDto typ_kontaid) {
         this.typ_kontaid = typ_kontaid;
     }
 

@@ -27,16 +27,16 @@ public class UzytkownikSerwisImplTest {
         Uzytkownik uzytkownik = new Uzytkownik();
         uzytkownik.setNazwisko("nazwisko");
         uzytkownik.setImie("imie");
-        Mockito.when(uzytkownikRepozytorium.findUzytkownikByKontoid(1l)).thenReturn(uzytkownik);
+        Mockito.when(uzytkownikRepozytorium.findById(1l).get()).thenReturn(uzytkownik);
 
-        assertThat(uzytkownikSerwis.findUzytkownikByKontoId(1l).getImie()).isEqualTo(uzytkownik.getImie());
-        assertThat(uzytkownikSerwis.findUzytkownikByKontoId(1l).getNazwisko()).isEqualTo(uzytkownik.getNazwisko());
+        assertThat(uzytkownikSerwis.findUzytkownikById(1l).getImie()).isEqualTo(uzytkownik.getImie());
+        assertThat(uzytkownikSerwis.findUzytkownikById(1l).getNazwisko()).isEqualTo(uzytkownik.getNazwisko());
     }
 
     @Test
     public void findUzytkownikByKontoIdNotFoundTest(){
-        Mockito.when(uzytkownikRepozytorium.findUzytkownikByKontoid(1l)).thenReturn(null);
+        Mockito.when(uzytkownikRepozytorium.findById(1l)).thenReturn(null);
 
-        assertThat(uzytkownikSerwis.findUzytkownikByKontoId(1l)).isNull();
+        assertThat(uzytkownikSerwis.findUzytkownikById(1l)).isNull();
     }
 }

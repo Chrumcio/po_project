@@ -4,7 +4,7 @@ public class UzytkownikDto {
     private Long id;
     private String imie;
     private String nazwisko;
-    private Long kontoid;
+    private KontoDto kontoid;
 
     public Long getId() {
         return id;
@@ -30,11 +30,11 @@ public class UzytkownikDto {
         this.nazwisko = nazwisko;
     }
 
-    public Long getKontoid() {
+    public KontoDto getKontoid() {
         return kontoid;
     }
 
-    public void setKontoid(Long kontoid) {
+    public void setKontoid(KontoDto kontoid) {
         this.kontoid = kontoid;
     }
 

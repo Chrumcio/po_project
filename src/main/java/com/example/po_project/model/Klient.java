@@ -26,8 +26,9 @@ public class Klient {
     @Column(name = "czy_staly")
     private boolean czy_staly;
 
-    @Column(name = "kontoid")
-    private Long kontoid;
+    @OneToOne
+    @JoinColumn(name = "kontoid",referencedColumnName = "id",nullable = false)
+    private Konto kontoid;
 
     @Column(name = "nip")
     private String nip;
@@ -86,11 +87,11 @@ public class Klient {
         this.czy_staly = czy_staly;
     }
 
-    public Long getKontoid() {
+    public Konto getKontoid() {
         return kontoid;
     }
 
-    public void setKontoid(Long kontoid) {
+    public void setKontoid(Konto kontoid) {
         this.kontoid = kontoid;
     }
 
