@@ -43,7 +43,8 @@ export class SzukajNazwaComponent implements OnInit {
         })).subscribe(data => {
           this.paczka = data;
           this.paczkaSerwis.listPaczka = data;
-          if (this.paczka != null) {
+          debugger;
+          if (this.paczka.length != 0) {
             this.router.navigate(['../wyniki'], { relativeTo: this.route })
           } else {
             this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Brak podanej paczki w magazynie", errorPath: "/home" } });// adres do alertu o braku paczki w magazynie

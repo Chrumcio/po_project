@@ -2,7 +2,6 @@ package com.example.po_project.serwis;
 
 import com.example.po_project.dto.DokumentDto;
 import com.example.po_project.model.Dokument;
-import com.example.po_project.model.Klient;
 import com.example.po_project.repozytorium.DokumentRepozytorium;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
