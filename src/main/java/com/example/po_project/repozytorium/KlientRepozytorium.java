@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface KlientRepozytorium extends JpaRepository<Klient,Long> {
-    @Query("SELECT * FROM klient WHERE kontoid=:id")
-    Klient findKlientByKontoid(@Param("id") Long id);
+//    @Query("SELECT * FROM klient WHERE kontoid=:id")
+    Klient findKlientByKontoid(Long id);
 }

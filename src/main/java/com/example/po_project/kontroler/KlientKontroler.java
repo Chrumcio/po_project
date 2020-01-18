@@ -12,20 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class KlientKontroler {
 
     private KlientSerwisImpl klientSerwisImpl;
-    private ModelMapper modelMapper;
 
-    public KlientKontroler(KlientSerwisImpl klientSerwisImpl, ModelMapper modelMapper) {
+    public KlientKontroler(KlientSerwisImpl klientSerwisImpl) {
         this.klientSerwisImpl = klientSerwisImpl;
-        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/kontoid/{id}")
     public KlientDto getKlientByKontoId(@PathVariable(value = "id")Long id){
-        return convertToDto(klientSerwisImpl.getKlientByKontoId(id));
-    }
-
-    private KlientDto convertToDto(Klient klient){
-        KlientDto klientDto = modelMapper.map(klient,KlientDto.class);
-        return klientDto;
+        return klientSerwisImpl.getKlientByKontoId(id);
     }
 }

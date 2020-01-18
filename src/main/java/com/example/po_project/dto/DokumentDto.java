@@ -7,7 +7,7 @@ import com.example.po_project.model.Uzytkownik;
 public class DokumentDto {
 
     private Long data_wystawienia;
-    private TypDokumentuDto typdokumentuid;
+    private TypDokumentu typ_dokumentuid;
     private UzytkownikDto uzytkownikid;
     private KlientDto klientid;
 
@@ -19,12 +19,12 @@ public class DokumentDto {
         this.data_wystawienia = data_wystawienia;
     }
 
-    public TypDokumentuDto getTyp_dokumentuid() {
-        return typdokumentuid;
+    public TypDokumentu getTyp_dokumentuid() {
+        return typ_dokumentuid;
     }
 
-    public void setTyp_dokumentuid(TypDokumentuDto typ_dokumentuid) {
-        this.typdokumentuid = typ_dokumentuid;
+    public void setTyp_dokumentuid(TypDokumentu typ_dokumentuid) {
+        this.typ_dokumentuid = typ_dokumentuid;
     }
 
     public UzytkownikDto getUzytkownikid() {
@@ -47,7 +47,7 @@ public class DokumentDto {
     public String toString() {
         return "DokumentDto{" +
                 "data_wystawienia=" + data_wystawienia +
-                ", typ_dokumentuid=" + typdokumentuid +
+                ", typ_dokumentuid=" + typ_dokumentuid +
                 ", uzytkownikid=" + uzytkownikid +
                 ", klientid=" + klientid +
                 '}';

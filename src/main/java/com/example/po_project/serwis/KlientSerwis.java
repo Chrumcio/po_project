@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import com.example.po_project.model.Klient;
+import com.example.po_project.dto.KlientDto;
 
 public interface KlientSerwis {
-    Klient getKlientByKontoId(Long id);
+    KlientDto getKlientByKontoId(Long id);
 }

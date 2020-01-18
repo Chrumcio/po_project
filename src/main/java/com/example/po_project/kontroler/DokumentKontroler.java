@@ -14,25 +14,19 @@ import org.springframework.web.bind.annotation.*;
 public class DokumentKontroler {
 
     private DokumentSerwisImpl dokumentSerwis;
-    private ModelMapper modelMapper;
 
-    public DokumentKontroler(DokumentSerwisImpl dokumentSerwis, ModelMapper modelMapper) {
+    public DokumentKontroler(DokumentSerwisImpl dokumentSerwis) {
         this.dokumentSerwis = dokumentSerwis;
-        this.modelMapper = modelMapper;
     }
 
     @PostMapping("/dodaj")
     public ResponseEntity<DokumentDto> addDokument(@RequestBody DokumentDto dokumentDto){
-        dokumentSerwis.addDokument(convertFromDto(dokumentDto));
+        dokumentSerwis.addDokument(dokumentDto);
         return ResponseEntity.ok().body(dokumentDto);
     }
 
     @GetMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
-    public Dokument getDokument(@PathVariable(value = "id")Long id){
-        return dokumentSerwis.getDokument(id);
-    }
-
-    private Dokument convertFromDto(DokumentDto dokumentDto){
-        return modelMapper.map(dokumentDto,Dokument.class);
+    public ResponseEntity<DokumentDto> getDokument(@PathVariable(value = "id")Long id){
+        return ResponseEntity.ok().body(dokumentSerwis.getDokument(id));
     }
 }
