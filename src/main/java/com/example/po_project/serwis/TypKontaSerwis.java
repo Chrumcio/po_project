@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import com.example.po_project.model.TypKonta;
+import com.example.po_project.dto.TypKontaDto;
 
 public interface TypKontaSerwis {
-    TypKonta getTypKontaById(Long id);
+    TypKontaDto getTypKontaById(Long id);
 }

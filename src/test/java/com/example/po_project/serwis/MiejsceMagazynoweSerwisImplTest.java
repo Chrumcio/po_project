@@ -1,5 +1,6 @@
 package com.example.po_project.serwis;
 
+import com.example.po_project.dto.MiejsceMagazynoweDto;
 import com.example.po_project.model.MiejsceMagazynowe;
 import com.example.po_project.repozytorium.MiejsceMagazynoweRepozytorium;
 import org.junit.Before;
@@ -37,9 +38,30 @@ public class MiejsceMagazynoweSerwisImplTest {
     }
 
     @Test
-    public void getAllMiejsceMagazynoweTest(){
-        String aleja = "aleja1";
-        List<MiejsceMagazynowe> miejsceMagazynoweList = miejsceMagazynoweSerwis.getAllMiejsceMagazynowe();
-        assertThat(miejsceMagazynoweList.get(0).getAleja()).isEqualTo(aleja);
+    public void getAllMiejsceMagazynoweFoundTest(){
+        List<MiejsceMagazynoweDto> miejsceMagazynoweDtoList = new ArrayList<>();
+        MiejsceMagazynoweDto miejsceMagazynoweDto = new MiejsceMagazynoweDto();
+        miejsceMagazynoweDto.setAleja("aleja1");
+        miejsceMagazynoweDto.setBlok("blok1");
+        miejsceMagazynoweDtoList.add(miejsceMagazynoweDto);
+        List<MiejsceMagazynoweDto>miejsceMagazynoweDtoFound = miejsceMagazynoweSerwis.getAllMiejsceMagazynowe();
+
+        assertThat(miejsceMagazynoweDtoFound.size()).isEqualTo(miejsceMagazynoweDtoList.size());
+        assertThat(miejsceMagazynoweDtoFound.get(0).getAleja()).isEqualTo(miejsceMagazynoweDto.getAleja());
+        assertThat(miejsceMagazynoweDtoFound.get(0).getBlok()).isEqualTo(miejsceMagazynoweDto.getBlok());
+    }
+
+    @Test
+    public void getAllMiejsceMagazynoweNotFoundTest(){
+        Mockito.when(repozytorium.findAll()).thenReturn(new ArrayList<>());
+
+        List<MiejsceMagazynoweDto> miejsceMagazynoweDtoList = new ArrayList<>();
+        MiejsceMagazynoweDto miejsceMagazynoweDto = new MiejsceMagazynoweDto();
+        miejsceMagazynoweDto.setAleja("aleja1");
+        miejsceMagazynoweDto.setBlok("blok1");
+        miejsceMagazynoweDtoList.add(miejsceMagazynoweDto);
+        List<MiejsceMagazynoweDto> miejsceMagazynoweDtoFound = miejsceMagazynoweSerwis.getAllMiejsceMagazynowe();
+
+        assertThat(miejsceMagazynoweDtoFound).isEmpty();
     }
 }

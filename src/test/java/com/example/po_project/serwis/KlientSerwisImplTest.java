@@ -2,18 +2,14 @@ package com.example.po_project.serwis;
 
 import com.example.po_project.dto.KlientDto;
 import com.example.po_project.model.Klient;
-import com.example.po_project.model.Konto;
 import com.example.po_project.repozytorium.KlientRepozytorium;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -37,12 +33,21 @@ public class KlientSerwisImplTest {
     }
 
     @Test
-    public void getKlientByKontoIdTest(){
+    public void getKlientByKontoIdFoundTest(){
         Long id = 1l;
         String name = "Jan";
         KlientDto found = klientSerwis.getKlientByKontoId(id);
 
         assertThat(found.getImie()).isEqualTo(name);
+    }
+
+    @Test
+    public void getKlientByKontoIdNotFoundTest(){
+        Long id = 342424234l;
+        String name = "Klient";
+        KlientDto notFound = klientSerwis.getKlientByKontoId(id);
+
+        assertThat(notFound).isNull();
     }
 
 }

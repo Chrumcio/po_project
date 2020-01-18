@@ -18,23 +18,13 @@ import java.util.List;
 public class MiejsceMagazynoweKontroler {
 
     private MiejsceMagazynoweSerwisImpl miejsceMagazynoweSerwisImpl;
-    private ModelMapper modelMapper;
 
     public MiejsceMagazynoweKontroler(MiejsceMagazynoweSerwisImpl miejsceMagazynoweSerwisImpl,ModelMapper modelMapper) {
         this.miejsceMagazynoweSerwisImpl = miejsceMagazynoweSerwisImpl;
-        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/all")
     public List<MiejsceMagazynoweDto> getAllMiejsceMagazynowe(){
-        List<MiejsceMagazynoweDto> miejsceMagazynoweDtoList = new ArrayList<>();
-        for (MiejsceMagazynowe m : miejsceMagazynoweSerwisImpl.getAllMiejsceMagazynowe()){
-            miejsceMagazynoweDtoList.add(convertToDto(m));
-        }
-        return miejsceMagazynoweDtoList;
-    }
-
-    private MiejsceMagazynoweDto convertToDto(MiejsceMagazynowe miejsceMagazynowe){
-        return modelMapper.map(miejsceMagazynowe,MiejsceMagazynoweDto.class);
+        return miejsceMagazynoweSerwisImpl.getAllMiejsceMagazynowe();
     }
 }

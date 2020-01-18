@@ -18,14 +18,24 @@ public class DokumentSerwisImpl implements DokumentSerwis {
     }
 
     @Override
-    public void addDokument(DokumentDto dokumentDto) {
-        Dokument dokument = modelMapper.map(dokumentDto,Dokument.class);
-        dokumentRepozytorium.save(dokument);
+    public DokumentDto addDokument(DokumentDto dokumentDto) {
+        if(dokumentDto != null) {
+            Dokument dokument = modelMapper.map(dokumentDto, Dokument.class);
+            dokumentRepozytorium.save(dokument);
+            return dokumentDto;
+        }else{
+            return null;
+        }
     }
 
-    public DokumentDto getDokument(Long id){
-        Dokument dokument = dokumentRepozytorium.findById(id).get();
-        DokumentDto dokumentDto = modelMapper.map(dokument,DokumentDto.class);
+    public DokumentDto getDokumentById(Long id){
+        Dokument dokument;
+        try {
+            dokument = dokumentRepozytorium.findById(id).get();
+        }catch (Exception e){
+            return null;
+        }
+        DokumentDto dokumentDto = modelMapper.map(dokument, DokumentDto.class);
         return dokumentDto;
     }
 }

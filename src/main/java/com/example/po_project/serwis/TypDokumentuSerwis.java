@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import com.example.po_project.model.TypDokumentu;
+import com.example.po_project.dto.TypDokumentuDto;
 
 public interface TypDokumentuSerwis {
-    TypDokumentu getTypDokumentuByNazwa(String nazwa);
+    TypDokumentuDto getTypDokumentuByNazwa(String nazwa);
 }

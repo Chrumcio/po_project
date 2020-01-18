@@ -13,25 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class TypDokumentuKontroler {
 
     private TypDokumentuSerwisImpl typDokumentuSerwis;
-    private ModelMapper modelMapper;
 
-    public TypDokumentuKontroler(TypDokumentuSerwisImpl typDokumentuSerwis, ModelMapper modelMapper) {
+    public TypDokumentuKontroler(TypDokumentuSerwisImpl typDokumentuSerwis) {
         this.typDokumentuSerwis = typDokumentuSerwis;
-        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/{nazwa}")
-    public TypDokumentuDto getTypDokumentuByNazwa(@PathVariable(value = "nazwa")String nazwa){
-        return convertToDto(typDokumentuSerwis.getTypDokumentuByNazwa(nazwa));
-    }
-
-    private TypDokumentuDto convertToDto(TypDokumentu typDokumentu){
-        return modelMapper.map(typDokumentu,TypDokumentuDto.class);
-    }
-
-    @PostMapping("/dodaj")
-    public ResponseEntity<TypDokumentu> add(@RequestBody TypDokumentu dokumentu){
-        typDokumentuSerwis.add(dokumentu);
-        return ResponseEntity.ok().body(dokumentu);
+    public ResponseEntity<TypDokumentuDto> getTypDokumentuByNazwa(@PathVariable(value = "nazwa")String nazwa){
+        return ResponseEntity.ok().body(typDokumentuSerwis.getTypDokumentuByNazwa(nazwa));
     }
 }

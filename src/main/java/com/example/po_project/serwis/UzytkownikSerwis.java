@@ -1,7 +1,7 @@
 package com.example.po_project.serwis;
 
-import com.example.po_project.model.Uzytkownik;
+import com.example.po_project.dto.UzytkownikDto;
 
 public interface UzytkownikSerwis {
-    Uzytkownik findUzytkownikByKontoId(Long id);
+    UzytkownikDto findUzytkownikByKontoId(Long id);
 }

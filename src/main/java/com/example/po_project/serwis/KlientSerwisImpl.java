@@ -20,7 +20,11 @@ public class KlientSerwisImpl implements KlientSerwis{
 
     public KlientDto getKlientByKontoId(Long id){
         Klient klient = klientRepozytorium.findKlientByKontoid(id);
-        KlientDto klientDto = modelMapper.map(klient,KlientDto.class);
-        return klientDto;
+        if(klient != null) {
+            KlientDto klientDto = modelMapper.map(klient, KlientDto.class);
+            return klientDto;
+        }else {
+            return null;
+        }
     }
 }

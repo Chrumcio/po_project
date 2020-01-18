@@ -1,5 +1,6 @@
 package com.example.po_project.serwis;
 
+import com.example.po_project.dto.KontoDto;
 import com.example.po_project.model.Klient;
 import com.example.po_project.model.Konto;
 import com.example.po_project.repozytorium.KontoRepozytorium;
@@ -34,11 +35,18 @@ public class KontoSerwisImplTest {
     }
 
     @Test
-    public void getKontoByLoginTest(){
+    public void getKontoByLoginFoundTest(){
         String login = "login";
         String haslo = "haslo";
-        Konto found = kontoRepozytorium.findByLogin(login);
+        KontoDto found = kontoSerwis.getKontoByLogin(login,haslo);
         assertThat(found.getHaslo()).isEqualTo(haslo);
+    }
 
+    @Test
+    public void getKontoByLoginNotFoundTest(){
+        String login = "exampleLogin";
+        String haslo = "exampleHaslo";
+        KontoDto notFound = kontoSerwis.getKontoByLogin(login,haslo);
+        assertThat(notFound).isNull();
     }
 }

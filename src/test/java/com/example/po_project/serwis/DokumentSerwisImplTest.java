@@ -37,29 +37,32 @@ public class DokumentSerwisImplTest {
     }
 
     @Test
-    public void getDokumentTest(){
+    public void addDokumentSuccess(){
+        DokumentDto dokumentDto = new DokumentDto();
+        dokumentDto.setData_wystawienia(123456789l);
+        DokumentDto added = dokumentSerwis.addDokument(dokumentDto);
+        assertThat(dokumentDto.getData_wystawienia()).isEqualTo(added.getData_wystawienia());
+    }
+
+    @Test
+    public void addDokumentNotSuccess(){
+        DokumentDto dokumentDto = null;
+        DokumentDto added = dokumentSerwis.addDokument(dokumentDto);
+        assertThat(added).isNull();
+    }
+
+    @Test
+    public void getDokumentByIdFoundTest(){
         Long id = 25l;
         Long dataWystawienia = 1579274098475l;
-        DokumentDto found = dokumentSerwis.getDokument(id);
+        DokumentDto found = dokumentSerwis.getDokumentById(id);
         assertThat(found.getData_wystawienia()).isEqualTo(dataWystawienia);
     }
 
-    //Not working yet
-//    @Test
-//    public void addDokumentTest(){
-//        Long dataWystawienia = 1579274098477l;
-//        DokumentDto dokumentDto = new DokumentDto();
-//        dokumentDto.setData_wystawienia(1579274098477l);
-//
-//        Dokument dokument = new Dokument();
-//        dokumentSerwis.addDokument(dokumentDto);
-//        List<Dokument> dokumentList = new ArrayList<>();
-//        dokumentList = dokumentRepozytorium.findAll();
-//        for(int i = 0; i < dokumentList.size(); i++){
-//            if(dokumentList.get(i).getData_wystawienia() == dataWystawienia){
-//                dokument = dokumentList.get(i);
-//            }
-//        }
-//        assertThat(dokument.getData_wystawienia()).isEqualTo(dataWystawienia);
-//    }
+    @Test
+    public void getDokumentByIdNotFoundTest(){
+        Long id = 21312312312l;
+        DokumentDto notFound = dokumentSerwis.getDokumentById(id);
+        assertThat(notFound).isNull();
+    }
 }
