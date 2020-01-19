@@ -9,5 +9,12 @@ import com.example.po_project.dto.TypDokumentuDto;
  * projektowy transaction script
  */
 public interface TypDokumentuSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekt w bazie danych
+     * @param nazwa Argument, po którym będzie odbywać się wyszukiwanie
+     *           obiektu w bazie danych
+     * @return TypDokumentuDto jeżeli wyszukano obiekt w bazie danych, null w
+     * przeciwnym wypadku
+     */
     TypDokumentuDto getTypDokumentuByNazwa(String nazwa);
 }

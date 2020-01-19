@@ -9,5 +9,12 @@ import com.example.po_project.dto.TypKontaDto;
  * projektowy transaction script
  */
 public interface TypKontaSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekt w bazie danych
+     * @param id Argument, po którym będzie odbywać się wyszukiwanie
+     *           obiektu w bazie danych
+     * @return TypKontaDto jeżeli wyszukano obiekt w bazie danych, null w
+     * przeciwnym wypadku
+     */
     TypKontaDto getTypKontaById(Long id);
 }

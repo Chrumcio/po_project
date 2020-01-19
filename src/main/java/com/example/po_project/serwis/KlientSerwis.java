@@ -9,5 +9,12 @@ import com.example.po_project.dto.KlientDto;
  * projektowy transaction script
  */
 public interface KlientSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekt w bazie danych
+     * @param id Argument, po którym będzie odbywać się wyszukiwanie
+     *           obiektu w bazie danych
+     * @return KlientDto jeżeli wyszukano obiekt w bazie danych, null w
+     * przeciwnym wypadku
+     */
     KlientDto getKlientById(Long id);
 }

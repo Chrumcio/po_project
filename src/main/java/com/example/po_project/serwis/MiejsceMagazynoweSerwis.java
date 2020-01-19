@@ -11,5 +11,10 @@ import java.util.List;
  * projektowy transaction script
  */
 public interface MiejsceMagazynoweSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekty w bazie danych
+     * @return List<MiejsceMagazynoweDto> jeżeli wyszukano obiekt w bazie danych,
+     * null w przeciwnym wypadku
+     */
     List<MiejsceMagazynoweDto> getAllMiejsceMagazynowe();
 }

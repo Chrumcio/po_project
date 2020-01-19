@@ -9,5 +9,12 @@ import com.example.po_project.dto.UzytkownikDto;
  * projektowy transaction script
  */
 public interface UzytkownikSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekt w bazie danych
+     * @param id Argument, po którym będzie odbywać się wyszukiwanie
+     *           obiektu w bazie danych
+     * @return UzytkownikDto jeżeli wyszukano obiekt w bazie danych, null w
+     * przeciwnym wypadku
+     */
     UzytkownikDto findUzytkownikById(Long id);
 }

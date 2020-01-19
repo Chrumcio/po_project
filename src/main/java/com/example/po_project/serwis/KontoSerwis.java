@@ -9,5 +9,14 @@ import com.example.po_project.dto.KontoDto;
  * projektowy transaction script
  */
 public interface KontoSerwis {
+    /**
+     * Deklaracja metody, która ma za zadanie wyszukać obiekt w bazie danych
+     * @param login Argument, po którym będzie odbywać się wyszukiwanie
+     *           obiektu w bazie danych
+     * @param password Argument, po którym będzie odbywać się wyszukiwanie
+     *                 obiektu w bazie danych
+     * @return KontoDto jeżeli wyszukano obiekt w bazie danych, null w
+     * przeciwnym wypadku
+     */
     KontoDto getKontoByLogin(String login, String password);
 }
