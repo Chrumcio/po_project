@@ -24,7 +24,8 @@ export class SzukajKategoriaSzczegolyComponent implements OnInit {
 
   setListPaczka(item: string) {
     this.paczkaSerwis.getPaczkaByKategoria(item).pipe(map((items: Paczka[]) => {
-      if (items != null) {
+      debugger;
+      if (items.length != 0) {
         for (let i of items) {
           i.kod_kreskowy %= 1000;
         }
