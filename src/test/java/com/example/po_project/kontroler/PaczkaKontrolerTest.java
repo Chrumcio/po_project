@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.BDDMockito.given;
@@ -29,16 +28,29 @@ public class PaczkaKontrolerTest {
     @MockBean
     private PaczkaSerwisImpl paczkaSerwis;
 
-//    @Test
-//    public void getPaczkaByNameTest() throws Exception {
-//        PaczkaDto paczkaDto = new PaczkaDto();
-//        paczkaDto.setNazwa("nazwa");
-//        paczkaDto.setKategoria("kategoria");
-//        List<PaczkaDto> list = Arrays.asList(paczkaDto);
-//        given(paczkaSerwis.getPaczkaByName("nazwa")).willReturn(list);
-//        mvc.perform(get("paczka/{name}","nazwa")
-//        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$[0].nazwa").value(paczkaDto.getNazwa()));
-//    }
+    @Test
+    public void getPaczkaByNameNotFoundTest() throws Exception {
+        List<PaczkaDto> list = new ArrayList<>();
+        PaczkaDto paczkaDto = new PaczkaDto();
+        paczkaDto.setNazwa("nazwa");
+        paczkaDto.setKategoria("kategoria");
+        list.add(paczkaDto);
+        given(paczkaSerwis.getPaczkaByName("nazwa")).willReturn(null);
+        mvc.perform(get("paczka/{name}","nazwa")
+        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void getPaczkaByKategoriaNotFoundTest() throws Exception {
+        List<PaczkaDto> list = new ArrayList<>();
+        PaczkaDto paczkaDto = new PaczkaDto();
+        paczkaDto.setKategoria("kategoria");
+        paczkaDto.setNazwa("nazwa");
+        list.add(paczkaDto);
+        given(paczkaSerwis.getPaczkaByKategoria("kategoria")).willReturn(null);
+        mvc.perform(get("paczka/kategoria/{kategoria}","kategoria")
+        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
 }

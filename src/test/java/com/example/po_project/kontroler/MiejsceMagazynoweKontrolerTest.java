@@ -28,19 +28,19 @@ public class MiejsceMagazynoweKontrolerTest {
     @MockBean
     private MiejsceMagazynoweSerwisImpl miejsceMagazynoweSerwis;
 
-//    @Test
-//    public void getAllMiejsceMagazynoweTest() throws Exception {
-//        List<MiejsceMagazynoweDto> list = new ArrayList<>();
-//        MiejsceMagazynoweDto miejsceMagazynoweDto = new MiejsceMagazynoweDto();
-//        miejsceMagazynoweDto.setId(1l);
-//        miejsceMagazynoweDto.setBlok("blok");
-//        miejsceMagazynoweDto.setAleja("aleja");
-//        list.add(miejsceMagazynoweDto);
-//        given(miejsceMagazynoweSerwis.getAllMiejsceMagazynowe()).willReturn(list);
-//        mvc.perform(get("/miejsceMagazynowe/all")
-//        .contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$[0].blok").value(miejsceMagazynoweDto.getBlok()))
-//                .andExpect(jsonPath("$[0].aleja").value(miejsceMagazynoweDto.getAleja()));
-//    }
+    @Test
+    public void getAllMiejsceMagazynoweTest() throws Exception {
+        List<MiejsceMagazynoweDto> list = new ArrayList<>();
+        MiejsceMagazynoweDto miejsceMagazynoweDto = new MiejsceMagazynoweDto();
+        miejsceMagazynoweDto.setId(1l);
+        miejsceMagazynoweDto.setBlok("blok");
+        miejsceMagazynoweDto.setAleja("aleja");
+        list.add(miejsceMagazynoweDto);
+        given(miejsceMagazynoweSerwis.getAllMiejsceMagazynowe()).willReturn(list);
+        mvc.perform(get("/miejsceMagazynowe/all")
+        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].blok").value(miejsceMagazynoweDto.getBlok()))
+                .andExpect(jsonPath("$[0].aleja").value(miejsceMagazynoweDto.getAleja()));
+    }
 }
