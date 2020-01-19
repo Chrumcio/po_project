@@ -2,6 +2,7 @@ package com.example.po_project.kontroler;
 
 import com.example.po_project.dto.DokumentDto;
 import com.example.po_project.serwis.DokumentSerwisImpl;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,24 @@ public class DokumentKontrolerTest {
     @Autowired
     private MockMvc mvc;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     @MockBean
     private DokumentSerwisImpl dokumentSerwis;
+
+    @Test
+    public void addDokumentTest() throws Exception {
+        DokumentDto dokumentDto = new DokumentDto();
+        dokumentDto.setData_wystawienia(1234l);
+        String json = objectMapper.writeValueAsString(dokumentDto);
+        given(dokumentSerwis.addDokument(dokumentDto)).willReturn(dokumentDto);
+        mvc.perform(post("/dokument/dodaj")
+        .contentType(MediaType.APPLICATION_JSON)
+        .content(json)
+        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 
     @Test
     public void getDokumentFoundTest() throws Exception {
