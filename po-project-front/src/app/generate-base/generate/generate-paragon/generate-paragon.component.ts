@@ -39,7 +39,7 @@ export class GenerateParagonComponent implements OnInit {
         return this.surname === item;
       });
       if (name != null && surname != null) {
-        this.documentsService.address = "";
+        this.documentsService.address = "../../../../assets/images/paragon.png";
         this.router.navigate(['../wyniki'], { relativeTo: this.route });
       } else {
         this.router.navigate(['../error'], { relativeTo: this.route, state: { errorMessage: "Wprowadzono błędne dane do paragonu", errorPath: "../paragon" } });

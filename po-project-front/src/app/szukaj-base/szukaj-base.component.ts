@@ -24,18 +24,18 @@ export class SzukajBaseComponent implements OnInit {
   ngOnInit() {
     this.klient = new Klient();
     this.typKonta = new TypKonta();
-    if (this.konto.konto.typ_kontaid == 2) {
+    if (this.konto.konto.typ_kontaid.id == 2) {
       this.klientSerwis.getKlientByKontoId(this.konto.konto.id).subscribe(item => {
         this.klient = item;
       });
-    } else if (this.konto.konto.typ_kontaid == 1) {
-      this.uzytkownikSerwis.getUzytkownikByKontoId(this.konto.konto.id).subscribe(elem => {
+    } else if (this.konto.konto.typ_kontaid.id == 1) {
+      this.uzytkownikSerwis.getUzytkownikByKontoId(1).subscribe(elem => {
         this.uzytkownik = elem;
         this.klient.imie = this.uzytkownik.imie;
         this.klient.nazwisko = this.uzytkownik.nazwisko;
       });
     }
-    this.typKontaSerwis.getTypKontaById(this.konto.konto.typ_kontaid).subscribe(data => {
+    this.typKontaSerwis.getTypKontaById(this.konto.konto.typ_kontaid.id).subscribe(data => {
       this.typKonta = data;
     });
   }

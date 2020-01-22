@@ -16,6 +16,6 @@ export class KlientService {
   }
 
   getKlientByKontoId(id: number):Observable<Klient>{
-    return this.http.get<Klient>(`${this.url}/kontoid/${id}`);
+    return this.http.get<Klient>(`${this.url}/id/${id}`);
   }
 }

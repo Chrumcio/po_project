@@ -7,10 +7,13 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+/**
+ * PaczkaRepozytorium jest to interfejs, który rozszerza JpaRepository,
+ * które umożliwia podstawowe operacje związane z działaniem na bazie danych.
+ * Umożliwia operacje CRUD. Nie posiada żadnych nowych metod, gdyż operacje CRUD
+ * są wystarczające do działania programu
+ */
 public interface PaczkaRepozytorium extends JpaRepository<Paczka,Long> {
-    @Query("SELECT * FROM paczka WHERE nazwa=:name")
-    List<Paczka> findByNazwa(@Param("name") String name);
-
-    @Query("SELECT * FROM paczka WHERE kategoria=:kategoria")
-    List<Paczka> findByKategoria(@Param("kategoria")String kategoria);
+    List<Paczka> findByNazwa(String name);
+    List<Paczka> findByKategoria(String kategoria);
 }
