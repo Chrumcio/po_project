@@ -46,7 +46,6 @@ public class PaczkaSerwisImplTest {
         paczkaDto.setNazwa("paczka");
         paczkaDto.setKategoria("kategoria");
         paczkaDtoList.add(paczkaDto);
-
         assertThat(paczkaSerwis.getPaczkaByName("paczka").size()).isEqualTo(paczkaDtoList.size());
         assertThat(paczkaSerwis.getPaczkaByName("paczka").get(0).getNazwa()).isEqualTo(paczkaDto.getNazwa());
         assertThat(paczkaSerwis.getPaczkaByName("paczka").get(0).getKategoria()).isEqualTo(paczkaDto.getKategoria());

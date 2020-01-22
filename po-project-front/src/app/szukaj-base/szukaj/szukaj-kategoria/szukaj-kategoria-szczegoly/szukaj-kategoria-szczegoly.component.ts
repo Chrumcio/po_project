@@ -24,6 +24,10 @@ export class SzukajKategoriaSzczegolyComponent implements OnInit {
     this.podkategoria.set("Dom i ogród", ["Salon", "Kuchnia", "Łazienka", "Sypialnia", "Przedpokój", "Pracownia", "Pokój biurowy", "Ogrzewanie", "Ściany"]);
     this.podkategoria.set("Uroda", ["Perfumy damskie", "Perfumy męskie", "Testery", "Dezodoranty damskie", "Dezodoranty męskie", "Balsamy do ciała", "Szampony", "Golenie", "Kremy"]);
     this.podkategoria.set("Zdrowie", ["Suplementy diety", "Dermokosmetyki", "Higiena jamy ustnej", "Korekcja wzroku", "Urządzenia medyczne", "Leki", "Masaż", "Sprzęt rehabilitacyjny", "Wyposażenie gabinetów"]);
+    this.podkategoria.set("Kultura", ["Suplementy diety", "Dermokosmetyki", "Higiena jamy ustnej", "Korekcja wzroku", "Urządzenia medyczne", "Leki", "Masaż", "Sprzęt rehabilitacyjny", "Wyposażenie gabinetów"]);
+    this.podkategoria.set("Sport", ["Koszulki Sportowe", "Halówki", "Korki", "Torfy", "Spodenki", "Bieganie", "Sporty zimowe", "Sprzęt rehabilitacyjny", "Wyposażenie gabinetów"]);
+    this.podkategoria.set("Motoryzacja", ["Suplementy diety", "Dermokosmetyki", "Higiena jamy ustnej", "Korekcja wzroku", "Urządzenia medyczne", "Leki", "Masaż", "Sprzęt rehabilitacyjny", "Wyposażenie gabinetów"]);
+    this.podkategoria.set("Sztuka", ["Suplementy diety", "Dermokosmetyki", "Higiena jamy ustnej", "Korekcja wzroku", "Urządzenia medyczne", "Leki", "Masaż", "Sprzęt rehabilitacyjny", "Wyposażenie gabinetów"]);
   }
 
   setListPaczka(item: string) {
